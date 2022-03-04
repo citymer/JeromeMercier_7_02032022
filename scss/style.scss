@@ -3,3 +3,25 @@
 #logo {
     width: 268px;  
 }
+
+.input_icon {
+    background-color: $secondary;
+}
+
+#input {
+    height: 69px;
+    background-color: $secondary;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+}
+#input:focus {
+    box-shadow: none;
+}   
+
+form span {
+    width: 60px;
+}
+
+form img {
+    height: 32px;
+}
