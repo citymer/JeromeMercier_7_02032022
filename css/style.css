@@ -10645,4 +10645,8 @@ fieldset:disabled .btn {
     display: none !important;
   }
 }
+
+#logo {
+  width: 268px;
+}
 /*# sourceMappingURL=style.css.map */
