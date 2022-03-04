@@ -8,6 +8,7 @@
     background-color: $secondary;
 }
 
+/* INPUT */
 #input {
     height: 69px;
     background-color: $secondary;
@@ -25,3 +26,13 @@ form span {
 form img {
     height: 32px;
 }
+
+/* BOUTON ingrédients */
+#boutton_ingredients {
+   display: flex;
+}
+
+#button_ingredients {
+    width: 170px;
+}
+
