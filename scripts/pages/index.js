@@ -1,3 +1,7 @@
+function articleRecipes() {
+
+
+
 const main = document.querySelector('main');
 
 const article = document.createElement('article');
@@ -20,7 +24,7 @@ article.setAttribute("class","article");
            const titreRecette = document.createElement('h5');
            titreEtTemps.appendChild(titreRecette);
            titreRecette.setAttribute("class","titre_recette");
-           titreRecette.textContent = "titre de la recette"
+           titreRecette.textContent = "intitulé recette";
 
            const iconEtTemps = document.createElement('div');
            titreEtTemps.appendChild(iconEtTemps);
@@ -61,5 +65,5 @@ article.setAttribute("class","article");
                   manuelRecette.setAttribute("class","manuel_recette");
                   manuelRecette.textContent = "blablabla blablablablablablabla";
 
+}
 
-              

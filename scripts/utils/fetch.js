@@ -2,13 +2,11 @@
 
 async function getRecipes() {  
 
-      // OBTENIR les parametres URL
-      //const getId = window.location.search;
-     // const urlParams = new URLSearchParams (getId);
-      //const idRecipes = urlParams.get ('id');
+  
+const allRecipes = [];
 
-    const recipes = [];
-    console.log(recipes);
+console.log(allRecipes);
+   
     
     // rapatrie les données de recipes.json
     await fetch('./data/recipes.json')
@@ -21,11 +19,17 @@ async function getRecipes() {
     
     //  données des recettes récupérées dans le json
     .then(json => {
-        this.recipes = json.recipes;
-       console.log();
+        const {recipes} = json;
+
+    for (let id of recipes) {
+        allRecipes.push(id);
+    }        
+       
+   
+        
      
-    return recipes;
-         
+   return allRecipes;
+       
         
     })
     
@@ -35,4 +39,4 @@ async function getRecipes() {
     })   
     
 }
-console.log("rrr");
+
