@@ -10652,6 +10652,9 @@ body {
 }
 
 main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0px 75px;
   position: relative;
   top: 70px;
   z-index: 2;
@@ -10771,9 +10774,29 @@ form img {
   display: flex;
 }
 
-.content_ingredients, .content_recette {
+.content_ingredients, .manuel_recette {
   width: 171px;
   height: 105px;
   margin-left: 10px;
+  font-size: 12px;
+}
+
+.manuel_recette {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ingredient {
+  font-weight: bold;
+  height: 12px;
+}
+
+.ingredient_quantity_unit {
+  display: flex;
+}
+
+.quantity_unit {
+  margin-left: 5px;
+  margin-bottom: 0;
 }
 /*# sourceMappingURL=style.css.map */
