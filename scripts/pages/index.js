@@ -2,6 +2,7 @@ const {name,ingredients,time,description,id} = recipes[0];
 const {ingredient, quantity, unit} = ingredients[0];
 
 
+
 function articleRecipes(id) {
 
 
@@ -46,6 +47,7 @@ article.id = id.id;
               iconEtTemps.appendChild(tempsMinute);
               tempsMinute.setAttribute("class","temps_minute");
               tempsMinute.textContent = id.time + "min";
+              
 
         const ingredientsEtRecette = document.createElement('div');
         divRecette.appendChild(ingredientsEtRecette);
@@ -65,14 +67,20 @@ article.id = id.id;
                       const ingredientRecette = document.createElement('span');
                       ingredientQuantityUnit.appendChild(ingredientRecette);
                       ingredientRecette.setAttribute("class","ingredient");
-                      ingredientRecette.textContent = ingredient;
+                      ingredientRecette.textContent = id.ingredients[0].ingredient +":";
+                      
           
-                      const quantiteUnit = document.createElement('p');
-                      ingredientQuantityUnit.appendChild(quantiteUnit);
-                      quantiteUnit.setAttribute("class","quantity_unit");
-                      quantiteUnit.textContent = quantity + unit;
-          
+                      const quantite = document.createElement('p');
+                      ingredientQuantityUnit.appendChild(quantite);
+                      quantite.setAttribute("class","quantity_unit");
+                      quantite.textContent = id.ingredients[0].quantity;
 
+                      const unit = document.createElement('p');
+                      ingredientQuantityUnit.appendChild(unit);
+                      unit.setAttribute("class","quantity_unit");
+                      unit.textContent = id.ingredients[0].unit;
+          
+             // contenant description
             const manuelRecette = document.createElement('p');
             ingredientsEtRecette.appendChild(manuelRecette);
             manuelRecette.setAttribute("class","manuel_recette");
@@ -80,6 +88,7 @@ article.id = id.id;
 
                 
 }
+
 
 
 
