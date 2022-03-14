@@ -58,27 +58,13 @@ article.id = id.id;
             ingredientsEtRecette.appendChild(contentIngredients);
             contentIngredients.setAttribute("class","content_ingredients");
 
-         
+                  // contenant "CREATE INGREDIENT"
                   const ingredientQuantityUnit = document.createElement('div');
                   contentIngredients.appendChild(ingredientQuantityUnit);
                   ingredientQuantityUnit.setAttribute("class","ingredient_quantity_unit");
                   
                    
-                      const ingredientRecette = document.createElement('span');
-                      ingredientQuantityUnit.appendChild(ingredientRecette);
-                      ingredientRecette.setAttribute("class","ingredient");
-                      ingredientRecette.textContent = id.ingredients[0].ingredient +":";
-                      
-          
-                      const quantite = document.createElement('p');
-                      ingredientQuantityUnit.appendChild(quantite);
-                      quantite.setAttribute("class","quantity_unit");
-                      quantite.textContent = id.ingredients[0].quantity;
-
-                      const unit = document.createElement('p');
-                      ingredientQuantityUnit.appendChild(unit);
-                      unit.setAttribute("class","quantity_unit");
-                      unit.textContent = id.ingredients[0].unit;
+                    
           
              // contenant description
             const manuelRecette = document.createElement('p');
@@ -87,15 +73,60 @@ article.id = id.id;
             manuelRecette.textContent = id.description;
 
                 
-}
+            
+            
+            
+      }
+      
+      
+      
+      
+      // créer un article pour chaque recette
+      function createArticle() {
+            recipes.forEach((id) => {
+                  articleRecipes(id);
+                  
+            })
+            
+      }
 
-
-
-
-// créer un article pour chaque recette
-function createArticle() {
-      recipes.forEach((id) => {
-            articleRecipes(id);
+      ingredients.forEach((ingredient) => {
+           console.log(ingredient);
       })
-    
-}
+      // céer la ligne d'ingredient dans l'article
+      function createIngredient(id) {
+          
+            const contentIngredientQuantityUnit = document.querySelector('.ingredient_quantity_unit');
+      
+            const divIngredientQuantity = document.createElement('div');
+            contentIngredientQuantityUnit.appendChild(divIngredientQuantity);
+            divIngredientQuantity.setAttribute("class","div_ingredient_quantity");
+            
+            const ingredientRecette = document.createElement('span');
+            divIngredientQuantity.appendChild(ingredientRecette);
+            ingredientRecette.setAttribute("class","ingredient");
+            ingredientRecette.textContent = id.ingredient;
+            
+      
+            const quantite = document.createElement('p');
+            divIngredientQuantity.appendChild(quantite);
+            quantite.setAttribute("class","quantity_unit");
+            quantite.textContent = id.quantity;
+      
+           
+      
+            const unit = document.createElement('p');
+            divIngredientQuantity.appendChild(unit);
+            unit.setAttribute("class","quantity_unit unit");
+            unit.textContent = id.unit;
+      
+      }
+
+      function dd() {
+            let contentIngredient = document.querySelectorAll('.article');
+            console.log(contentIngredient);
+          contentIngredient.forEach((id) => {
+              createIngredient(id);
+          })
+      }
+      

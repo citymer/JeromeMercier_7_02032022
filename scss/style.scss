@@ -1,4 +1,5 @@
 @import "bootstrap/bootstrap.scss";
+@import "utils/_mixins.scss";
 body {
     font-family: 'Lato', sans-serif;
 }
@@ -9,6 +10,17 @@ main {
     position: relative;
     top: 70px;
     z-index: 2;
+    @include xl {
+        grid-template-columns: 1fr 1fr;
+    }
+    @include lg {
+        grid-template-columns: 1fr;
+    }
+    @include md {
+        top: 200px;
+        gap:0;
+       
+    }
 }
 #logo {
     width: 268px;  
@@ -42,11 +54,29 @@ form img {
    display: flex;
    position: absolute;
    z-index: 10;
+   @include md {
+       display: block; 
+       width: 90%; 
+      
+   }
+}
+
+.bouton_et_input {
+    @include md {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .button_ingredients, .button_appareils, .button_ustensiles {
     width: 170px;
     font-size: 18px;
+    @include md {
+        width: 90%;  
+        margin-bottom: 20px;
+       
+    }
 }
 #input_ingredient {
     height: 69px;
@@ -63,10 +93,17 @@ form img {
 
 .ingredients, .appareils, .ustensiles {
     display: none;
+ 
 }
 .content_input {
     max-width: 667px;
     max-height: 397px;
+}
+
+.chevron_down {
+    @include md {
+        float: right;
+    }
 }
 
 .chevron_up, .chevron_up2, .chevron_up3 {
@@ -80,6 +117,14 @@ form img {
     width: 380px;
     height: 364px;
     margin-top: 100px;
+    @include md {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    @include sm {
+        width: 290px;
+        height: 270px;
+    }
    
 }
 
@@ -88,12 +133,18 @@ form img {
     height: 178px;
     background-color: #c7bebe;
     border-radius: 5px 5px 0px 0px;
+    @include sm {
+        width: 290px;
+    }
 }
 .divrecette {
     width: 380px;
     height: 186px;
     background-color: $secondary;
     border-radius: 0px 0px 5px 5px;
+    @include sm {
+        width: 290px;
+    }
 }
 
 .titre_et_temps, .icon_et_temps {
@@ -123,22 +174,32 @@ form img {
     height: 105px;
     margin-left: 10px;
     font-size: 12px;
-}
-.manuel_recette {
+    line-height: 15px;
+
     overflow: hidden;
     text-overflow: ellipsis;
 }
 .ingredient {
     font-weight: bold;
     height: 12px;
+    white-space: nowrap;
 }
 
-.ingredient_quantity_unit {
+
+.div_ingredient_quantity {
     display: flex;
+    height: 14px;
+
+
 }
 .quantity_unit {
     margin-left: 5px;
     margin-bottom: 0;
+}
+
+.unit {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 

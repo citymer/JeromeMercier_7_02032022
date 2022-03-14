@@ -10660,6 +10660,25 @@ main {
   z-index: 2;
 }
 
+@media screen and (max-width: 1400px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    top: 200px;
+    gap: 0;
+  }
+}
+
 #logo {
   width: 268px;
 }
@@ -10695,9 +10714,31 @@ form img {
   z-index: 10;
 }
 
+@media screen and (max-width: 768px) {
+  #boutton_ingredients {
+    display: block;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bouton_et_input {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .button_ingredients, .button_appareils, .button_ustensiles {
   width: 170px;
   font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .button_ingredients, .button_appareils, .button_ustensiles {
+    width: 90%;
+    margin-bottom: 20px;
+  }
 }
 
 #input_ingredient {
@@ -10723,6 +10764,12 @@ form img {
   max-height: 397px;
 }
 
+@media screen and (max-width: 768px) {
+  .chevron_down {
+    float: right;
+  }
+}
+
 .chevron_up, .chevron_up2, .chevron_up3 {
   padding-top: 27px;
   cursor: pointer;
@@ -10734,6 +10781,20 @@ form img {
   margin-top: 100px;
 }
 
+@media screen and (max-width: 768px) {
+  .article {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .article {
+    width: 290px;
+    height: 270px;
+  }
+}
+
 .img_article {
   width: 380px;
   height: 178px;
@@ -10741,11 +10802,23 @@ form img {
   border-radius: 5px 5px 0px 0px;
 }
 
+@media screen and (max-width: 576px) {
+  .img_article {
+    width: 290px;
+  }
+}
+
 .divrecette {
   width: 380px;
   height: 186px;
   background-color: #e7e7e7;
   border-radius: 0px 0px 5px 5px;
+}
+
+@media screen and (max-width: 576px) {
+  .divrecette {
+    width: 290px;
+  }
 }
 
 .titre_et_temps, .icon_et_temps {
@@ -10779,9 +10852,7 @@ form img {
   height: 105px;
   margin-left: 10px;
   font-size: 12px;
-}
-
-.manuel_recette {
+  line-height: 15px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -10789,14 +10860,21 @@ form img {
 .ingredient {
   font-weight: bold;
   height: 12px;
+  white-space: nowrap;
 }
 
-.ingredient_quantity_unit {
+.div_ingredient_quantity {
   display: flex;
+  height: 14px;
 }
 
 .quantity_unit {
   margin-left: 5px;
   margin-bottom: 0;
+}
+
+.unit {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 /*# sourceMappingURL=style.css.map */
