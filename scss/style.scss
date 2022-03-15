@@ -12,6 +12,7 @@ main {
     z-index: 2;
     @include xl {
         grid-template-columns: 1fr 1fr;
+        gap: 0px 163px;
     }
     @include lg {
         grid-template-columns: 1fr;

@@ -10663,6 +10663,7 @@ main {
 @media screen and (max-width: 1400px) {
   main {
     grid-template-columns: 1fr 1fr;
+    gap: 0px 163px;
   }
 }
 
