@@ -1,9 +1,10 @@
 function init() {
 
         
-    createArticle(id);
-    dd(id)
+    //createArticle(id);
+   // allIngredients(id);
     createIngredient(id);
+   
     
 };
 

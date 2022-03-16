@@ -11,7 +11,7 @@ function articleRecipes(id) {
   // ARTICLE
   const article = document.createElement('article');
   main.appendChild(article);
-  article.setAttribute("class","article");
+  article.setAttribute("class","article"); 
   article.id = id.id;
       // IMG
      const imgArticle = document.createElement('img');
@@ -75,22 +75,18 @@ function articleRecipes(id) {
 
                 
 }
+           
       
-      
-      
-      
-      // créer un article pour chaque recette
-      function createArticle() {
-            recipes.forEach((id) => {
-                  articleRecipes(id);
-                  
-            })
-            
-      }
+// créer un article pour chaque recette
+ recipes.forEach(articleRecipes);
 
-   
-      // céer une ligne d'ingredient dans l'article
-      function createIngredient(id) {
+// crée une ligne pour chaque ingrédient d'un article
+ingredients.forEach(createIngredient);  
+ 
+
+// crée une ligne d'ingredient dans l'article
+
+function createIngredient(id) {
           
             const contentIngredientQuantityUnit = document.querySelector('.ingredient_quantity_unit');
       
@@ -98,29 +94,33 @@ function articleRecipes(id) {
             contentIngredientQuantityUnit.appendChild(divIngredientQuantity);
             divIngredientQuantity.setAttribute("class","div_ingredient_quantity");
             
-            const ingredientRecette = document.createElement('span');
-            divIngredientQuantity.appendChild(ingredientRecette);
-            ingredientRecette.setAttribute("class","ingredient");
-            ingredientRecette.textContent = id.ingredient;
+              const ingredientRecette = document.createElement('span');
+              divIngredientQuantity.appendChild(ingredientRecette);
+              ingredientRecette.setAttribute("class","ingredient");
+              ingredientRecette.textContent = id.ingredient;
             
       
-            const quantite = document.createElement('p');
-            divIngredientQuantity.appendChild(quantite);
-            quantite.setAttribute("class","quantity_unit");
-            quantite.textContent = id.quantity;
+              const quantite = document.createElement('p');
+              divIngredientQuantity.appendChild(quantite);
+              quantite.setAttribute("class","quantity_unit");
+              quantite.textContent = id.quantity;
       
            
       
-            const unit = document.createElement('p');
-            divIngredientQuantity.appendChild(unit);
-            unit.setAttribute("class","quantity_unit unit");
-            unit.textContent = id.unit;
-      
-      }
+              const unit = document.createElement('p');
+              divIngredientQuantity.appendChild(unit);
+              unit.setAttribute("class","quantity_unit unit");
+              unit.textContent = id.unit;
 
-      function dd() {
-          ingredients.forEach((id) => {
-              createIngredient(id);
-          })
-      }
+      
+}
+
+
+
+         
+
+
+
+
+
       
