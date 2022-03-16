@@ -2,66 +2,67 @@ const {name,ingredients,time,description,id} = recipes[0];
 const {ingredient, quantity, unit} = ingredients[0];
 
 
-
+// crée un article
 function articleRecipes(id) {
 
 
-const main = document.querySelector('main');
-
-const article = document.createElement('article');
-main.appendChild(article);
-article.setAttribute("class","article");
-article.id = id.id;
-
+  const main = document.querySelector('main');
+  
+  // ARTICLE
+  const article = document.createElement('article');
+  main.appendChild(article);
+  article.setAttribute("class","article");
+  article.id = id.id;
+      // IMG
      const imgArticle = document.createElement('img');
      article.appendChild(imgArticle);
      imgArticle.setAttribute("class","img_article");
-
+     // DIV sous image 
      const divRecette = document.createElement('div');
      article.appendChild(divRecette);
      divRecette.setAttribute("class","divrecette");
          
-        // div titre et temps de préparation
-        const titreEtTemps = document.createElement('div');
-        divRecette.appendChild(titreEtTemps);
-        titreEtTemps.setAttribute("class","titre_et_temps");
-
-           const titreRecette = document.createElement('h5');
-           titreEtTemps.appendChild(titreRecette);
-           titreRecette.setAttribute("class","titre_recette");
-           titreRecette.textContent = id.name;
-
-           const iconEtTemps = document.createElement('div');
-           titreEtTemps.appendChild(iconEtTemps);
-           iconEtTemps.setAttribute("class","icon_et_temps");
-
-              const contentClock = document.createElement('span');
-              iconEtTemps.appendChild(contentClock);
-
-                  const clock = document.createElement('img');
-                  contentClock.appendChild(clock);
-                  clock.setAttribute("class","clock");
-                  clock.setAttribute("src","img/clock.png");
-
-              const tempsMinute = document.createElement('p');
-              iconEtTemps.appendChild(tempsMinute);
-              tempsMinute.setAttribute("class","temps_minute");
-              tempsMinute.textContent = id.time + "min";
+          // div titre et temps de préparation
+          const titreEtTemps = document.createElement('div');
+          divRecette.appendChild(titreEtTemps);
+          titreEtTemps.setAttribute("class","titre_et_temps");
+               // H5
+                const titreRecette = document.createElement('h5');
+                titreEtTemps.appendChild(titreRecette);
+                titreRecette.setAttribute("class","titre_recette");
+                titreRecette.textContent = id.name;
+                // DIV
+                const iconEtTemps = document.createElement('div');
+                titreEtTemps.appendChild(iconEtTemps);
+                iconEtTemps.setAttribute("class","icon_et_temps");
+                  // SPAN
+                  const contentClock = document.createElement('span');
+                  iconEtTemps.appendChild(contentClock);
+                       // IMG ICON CLOCK
+                        const clock = document.createElement('img');
+                        contentClock.appendChild(clock);
+                        clock.setAttribute("class","clock");
+                        clock.setAttribute("src","img/clock.png");
+                  // P MINUTE
+                  const tempsMinute = document.createElement('p');
+                  iconEtTemps.appendChild(tempsMinute);
+                  tempsMinute.setAttribute("class","temps_minute");
+                  tempsMinute.textContent = id.time + "min";
               
+             // DIV contenant tous les ingrédients
+            const ingredientsEtRecette = document.createElement('div');
+            divRecette.appendChild(ingredientsEtRecette);
+            ingredientsEtRecette.setAttribute("class","ingredients_et_recette");
 
-        const ingredientsEtRecette = document.createElement('div');
-        divRecette.appendChild(ingredientsEtRecette);
-        ingredientsEtRecette.setAttribute("class","ingredients_et_recette");
+                // contenant ingrédient
+                const contentIngredients = document.createElement('div');
+                ingredientsEtRecette.appendChild(contentIngredients);
+                contentIngredients.setAttribute("class","content_ingredients");
 
-              // contenant ingrédient
-            const contentIngredients = document.createElement('div');
-            ingredientsEtRecette.appendChild(contentIngredients);
-            contentIngredients.setAttribute("class","content_ingredients");
-
-                  // contenant "CREATE INGREDIENT"
-                  const ingredientQuantityUnit = document.createElement('div');
-                  contentIngredients.appendChild(ingredientQuantityUnit);
-                  ingredientQuantityUnit.setAttribute("class","ingredient_quantity_unit");
+                     // contenant FONCTION "CREATE INGREDIENT"
+                     const ingredientQuantityUnit = document.createElement('div');
+                     contentIngredients.appendChild(ingredientQuantityUnit);
+                     ingredientQuantityUnit.setAttribute("class","ingredient_quantity_unit");
                   
                    
                     
@@ -73,10 +74,7 @@ article.id = id.id;
             manuelRecette.textContent = id.description;
 
                 
-            
-            
-            
-      }
+}
       
       
       
@@ -90,10 +88,8 @@ article.id = id.id;
             
       }
 
-      ingredients.forEach((ingredient) => {
-           console.log(ingredient);
-      })
-      // céer la ligne d'ingredient dans l'article
+   
+      // céer une ligne d'ingredient dans l'article
       function createIngredient(id) {
           
             const contentIngredientQuantityUnit = document.querySelector('.ingredient_quantity_unit');
@@ -123,9 +119,7 @@ article.id = id.id;
       }
 
       function dd() {
-            let contentIngredient = document.querySelectorAll('.article');
-            console.log(contentIngredient);
-          contentIngredient.forEach((id) => {
+          ingredients.forEach((id) => {
               createIngredient(id);
           })
       }
