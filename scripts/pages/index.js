@@ -3,7 +3,7 @@ const {ingredient, quantity, unit} = ingredients[0];
 
 
 // crée un article
-function articleRecipes(id) {
+function articleRecipes(recette) {
 
 
   const main = document.querySelector('main');
@@ -12,7 +12,7 @@ function articleRecipes(id) {
   const article = document.createElement('article');
   main.appendChild(article);
   article.setAttribute("class","article"); 
-  article.id = id.id;
+  article.id = recette.id;
       // IMG
      const imgArticle = document.createElement('img');
      article.appendChild(imgArticle);
@@ -30,7 +30,7 @@ function articleRecipes(id) {
                 const titreRecette = document.createElement('h5');
                 titreEtTemps.appendChild(titreRecette);
                 titreRecette.setAttribute("class","titre_recette");
-                titreRecette.textContent = id.name;
+                titreRecette.textContent = recette.name;
                 // DIV
                 const iconEtTemps = document.createElement('div');
                 titreEtTemps.appendChild(iconEtTemps);
@@ -47,31 +47,50 @@ function articleRecipes(id) {
                   const tempsMinute = document.createElement('p');
                   iconEtTemps.appendChild(tempsMinute);
                   tempsMinute.setAttribute("class","temps_minute");
-                  tempsMinute.textContent = id.time + "min";
+                  tempsMinute.textContent = recette.time + "min";
               
              // DIV contenant tous les ingrédients
             const ingredientsEtRecette = document.createElement('div');
             divRecette.appendChild(ingredientsEtRecette);
-            ingredientsEtRecette.setAttribute("class","ingredients_et_recette");
+            ingredientsEtRecette.setAttribute("class","ingredients_et_description");
 
                 // contenant ingrédient
                 const contentIngredients = document.createElement('div');
                 ingredientsEtRecette.appendChild(contentIngredients);
                 contentIngredients.setAttribute("class","content_ingredients");
 
-                     // contenant FONCTION "CREATE INGREDIENT"
-                     const ingredientQuantityUnit = document.createElement('div');
-                     contentIngredients.appendChild(ingredientQuantityUnit);
-                     ingredientQuantityUnit.setAttribute("class","ingredient_quantity_unit");
-                  
-                   
-                    
+                 recette.ingredients.forEach((ingredient) => {
+
+                    const ligneIngredient = document.createElement('div');
+                    contentIngredients.appendChild(ligneIngredient);
+                    ligneIngredient.setAttribute("class","ligne_ingredient");
+
+                        const ingredientRecette = document.createElement('span');
+                        ligneIngredient.appendChild(ingredientRecette);
+                        ingredientRecette.setAttribute("class","ingredient");
+                        ingredientRecette.textContent = ingredient.ingredient;
+                
           
+                        const quantite = document.createElement('p');
+                        ligneIngredient.appendChild(quantite);
+                        quantite.setAttribute("class","quantity_unit");
+                        quantite.textContent = ingredient.quantity;
+          
+               
+          
+                        const unit = document.createElement('p');
+                        ligneIngredient.appendChild(unit);
+                        unit.setAttribute("class","quantity_unit unit");
+                        unit.textContent = ingredient.unit;
+     
+                 })
+
+                   
              // contenant description
             const manuelRecette = document.createElement('p');
             ingredientsEtRecette.appendChild(manuelRecette);
             manuelRecette.setAttribute("class","manuel_recette");
-            manuelRecette.textContent = id.description;
+            manuelRecette.textContent = recette.description;
 
                 
 }
@@ -80,40 +99,11 @@ function articleRecipes(id) {
 // créer un article pour chaque recette
  recipes.forEach(articleRecipes);
 
-// crée une ligne pour chaque ingrédient d'un article
-ingredients.forEach(createIngredient);  
+
  
 
-// crée une ligne d'ingredient dans l'article
 
-function createIngredient(id) {
-          
-            const contentIngredientQuantityUnit = document.querySelector('.ingredient_quantity_unit');
-      
-            const divIngredientQuantity = document.createElement('div');
-            contentIngredientQuantityUnit.appendChild(divIngredientQuantity);
-            divIngredientQuantity.setAttribute("class","div_ingredient_quantity");
-            
-              const ingredientRecette = document.createElement('span');
-              divIngredientQuantity.appendChild(ingredientRecette);
-              ingredientRecette.setAttribute("class","ingredient");
-              ingredientRecette.textContent = id.ingredient;
-            
-      
-              const quantite = document.createElement('p');
-              divIngredientQuantity.appendChild(quantite);
-              quantite.setAttribute("class","quantity_unit");
-              quantite.textContent = id.quantity;
-      
-           
-      
-              const unit = document.createElement('p');
-              divIngredientQuantity.appendChild(unit);
-              unit.setAttribute("class","quantity_unit unit");
-              unit.textContent = id.unit;
 
-      
-}
 
 
 

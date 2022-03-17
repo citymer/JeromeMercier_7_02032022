@@ -3,7 +3,7 @@ function init() {
         
     //createArticle(id);
    // allIngredients(id);
-    createIngredient(id);
+    //createIngredient(id);
    
     
 };

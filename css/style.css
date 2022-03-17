@@ -10844,7 +10844,7 @@ form img {
   margin-right: 7px;
 }
 
-.ingredients_et_recette {
+.ingredients_et_description {
   display: flex;
 }
 
@@ -10864,7 +10864,7 @@ form img {
   white-space: nowrap;
 }
 
-.div_ingredient_quantity {
+.ligne_ingredient {
   display: flex;
   height: 14px;
 }

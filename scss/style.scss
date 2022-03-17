@@ -167,7 +167,7 @@ form img {
     margin-right: 7px;
 }
 
-.ingredients_et_recette {
+.ingredients_et_description {
     display: flex;
 }
 .content_ingredients, .manuel_recette {
@@ -180,6 +180,7 @@ form img {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 .ingredient {
     font-weight: bold;
     height: 12px;
@@ -187,7 +188,7 @@ form img {
 }
 
 
-.div_ingredient_quantity {
+.ligne_ingredient {
     display: flex;
     height: 14px;
 
