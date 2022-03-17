@@ -1,9 +1,11 @@
+// BOUTON INGREDIENT ////////////////////////////////////////
+
 const boutonIngredients = document.querySelector('.button_ingredients');
 const inputIngredients = document.querySelector('.ingredients');
 const chevronUp = document.querySelector('.chevron_up');
 
 
-// fait apparaitre l'input ingrédients
+// fait apparaitre l'input-bouton ingrédients
 boutonIngredients.addEventListener('click', function(e) {
     e.preventDefault();
     
@@ -18,11 +20,14 @@ chevronUp.addEventListener('click', function(e) {
     boutonIngredients.style.display = "block";
 })
 
+
+// BOUTON APPAREIL //////////////////////////////////////
+
 const boutonAppareils = document.querySelector('.button_appareils');
 const inputAppareils = document.querySelector('.appareils');
 const chevronUpAppareils = document.querySelector('.chevron_up2');
 
-// fait apparaitre l'input appareil
+// fait apparaitre l'input-bouton appareil
 boutonAppareils.addEventListener('click', function(e) {
     e.preventDefault();
     
@@ -37,12 +42,13 @@ chevronUpAppareils.addEventListener('click', function(e) {
     boutonAppareils.style.display = "block";
 })
 
+// BOUTON USTENSILES /////////////////////////////////////
 
 const boutonUstensiles = document.querySelector('.button_ustensiles');
 const inputUstensiles = document.querySelector('.ustensiles');
 const chevronUpUstensiles = document.querySelector('.chevron_up3');
 
-// fait apparaitre l'input appareil
+// fait apparaitre l'input-bouton appareil
 boutonUstensiles.addEventListener('click', function(e) {
     e.preventDefault();
     

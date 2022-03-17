@@ -10742,17 +10742,17 @@ form img {
   }
 }
 
-#input_ingredient {
+.input_ingredient {
   height: 69px;
   background-color: #e7e7e7;
   font-size: 18px;
 }
 
-#input_ingredient:focus {
+.input_ingredient:focus {
   box-shadow: none;
 }
 
-#input_ingredient::placeholder {
+.input_ingredient::placeholder {
   color: white;
 }
 
