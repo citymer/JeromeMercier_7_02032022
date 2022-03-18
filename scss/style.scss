@@ -97,7 +97,8 @@ form img {
  
 }
 .content_input {
-    max-width: 667px;
+    min-width: 200px;
+    max-width: 800px;
     max-height: 397px;
 }
 
@@ -112,8 +113,24 @@ form img {
     cursor: pointer;
 
 }
+.content_list_ingredients {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  
+   
+}
+.liste_ingredient {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+}
 
-// ARTICLE
+
+
+// ARTICLE ///
 .article {
     width: 380px;
     height: 364px;

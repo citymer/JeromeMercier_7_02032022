@@ -33,14 +33,30 @@ recipes.forEach((recettes) => {
 // supprime les doublons dans "ingredientArray" et crée un nouveau tableau
 const filteredIngredient = ingredientArray.filter((el, index) => ingredientArray.indexOf(el) !== index)
 const ingredientsFiltre = [...new Set(filteredIngredient)]
-console.log(ingredientsFiltre);
+
 
 // supprime les doublons dans "appareilArray" et crée un nouveau tableau
 const filteredAppareil = appareilArray.filter((el, index) => appareilArray.indexOf(el) !== index)
 const appareilFiltre = [...new Set(filteredAppareil)]
-console.log(appareilFiltre);
+
 
 // supprime les doublons dans "ustensileArray" et crée un nouveau tableau
 const filteredUstensile = ustensileArray.filter((el, index) => ustensileArray.indexOf(el) !== index)
 const ustensileFiltre = [...new Set(filteredUstensile)]
-console.log(ustensileFiltre);
+
+
+
+
+   
+    const selectContentIngredient = document.querySelector('.content_list_ingredients');
+
+     ingredientsFiltre.forEach((liste) => {
+         
+         const ingredient = document.createElement('p');
+         selectContentIngredient.appendChild(ingredient);
+         ingredient.setAttribute("class","liste_ingredient");
+         ingredient.textContent = liste;
+         
+       
+        })
+    
