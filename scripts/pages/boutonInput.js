@@ -134,7 +134,7 @@ function createtagAppareil() {
        
                    const spanClose = document.createElement('span');
                    tagAppareils.appendChild(spanClose);
-                   spanClose.setAttribute("class","spanclose");
+                   spanClose.setAttribute("class","spanclose mx-2");
                    spanClose.textContent = allAppareils[i].innerHTML;
        
        
@@ -169,7 +169,7 @@ function createtagUstensiles() {
        
                   const spanClose = document.createElement('span');
                   tagUstensiles.appendChild(spanClose);
-                  spanClose.setAttribute("class","spanclose");
+                  spanClose.setAttribute("class","spanclose mx-2");
                   spanClose.textContent = allUstensiles[i].innerHTML;
        
        
