@@ -11,6 +11,7 @@ boutonIngredients.addEventListener('click', function(e) {
     
     inputIngredients.style.display = "block";
     boutonIngredients.style.display = "none";
+
 })
 
 //ferme l'input ingrédients

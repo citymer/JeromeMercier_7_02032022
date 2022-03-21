@@ -50,6 +50,29 @@ form img {
     height: 32px;
 }
 
+/* TAGS */
+.tags {
+    display: flex;
+   
+}
+.tag {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    width: 130px; 
+    height: 37px;
+    background-color: $primary;
+    border-radius: 5px;
+}
+.spanclose {
+    color: white;
+}
+.close {
+    height: 20px;
+    width:20px;
+}
+
 /* BOUTON ingrédients */
 #boutton_ingredients {
    display: flex;
@@ -119,9 +142,9 @@ form img {
   
    
 }
-.liste_ingredient {
-    margin-left: 10px;
-    margin-right: 10px;
+.liste {
+    margin-left: 20px;
+    margin-right: 20px;
     margin-bottom: 0;
     font-size: 18px;
     font-weight: 400;
