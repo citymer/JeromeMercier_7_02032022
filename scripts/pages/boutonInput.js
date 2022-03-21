@@ -106,7 +106,11 @@ function createTagIngredient() {
                    tagIngredients.appendChild(close);
                    close.setAttribute("class","close");
                    close.setAttribute("src","img/close.png");
-       
+                   
+                   close.addEventListener('click', function(e) {
+                    e.preventDefault;
+                    tagIngredients.remove();
+                })
        
        
        })
@@ -139,7 +143,10 @@ function createtagAppareil() {
                    close.setAttribute("class","close");
                    close.setAttribute("src","img/close.png");
        
-       
+                   close.addEventListener('click', function(e) {
+                    e.preventDefault;
+                    tagAppareils.remove();
+                }) 
        
        })
    } 
@@ -172,7 +179,13 @@ function createtagUstensiles() {
                    close.setAttribute("src","img/close.png");
        
        
+                   close.addEventListener('click', function(e) {
+                       e.preventDefault;
+                       tagUstensiles.remove();
+                   })
        
        })
    } 
 }
+
+
