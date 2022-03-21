@@ -79,9 +79,10 @@ const selectContentUstensile = document.querySelector('.content_list_ustensiles'
        })
 
 
-       
+
 const tag = document.querySelector('.tags');
 
+// Crée un tag quand on clique sur un ingredient de la liste
 function createTagIngredient() {
 
     const allIngredients = document.getElementsByClassName('liste_ingredient');
@@ -112,7 +113,7 @@ function createTagIngredient() {
     } 
 }       
 
-
+// Crée un tag quand on clique sur un appareil de la liste
 function createtagAppareil() {
 
     const allAppareils = document.getElementsByClassName('liste_appareil');
@@ -144,7 +145,7 @@ function createtagAppareil() {
    } 
 }
 
-
+// Crée un tag quand on clique sur un ustensile de la liste
 function createtagUstensiles() {
 
     const allUstensiles = document.getElementsByClassName('liste_ustensile');
