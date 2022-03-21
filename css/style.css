@@ -10715,10 +10715,9 @@ form img {
 
 .tag {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  max-width: 15%;
-  height: 37px;
+  margin-right: 5px;
+  height: 40px;
   border-radius: 5px;
 }
 
@@ -10736,11 +10735,13 @@ form img {
 
 .spanclose {
   color: white;
+  margin-bottom: 0;
 }
 
 .close {
   height: 20px;
   width: 20px;
+  margin-right: 5px;
   cursor: pointer;
 }
 

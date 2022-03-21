@@ -92,13 +92,13 @@ function createTagIngredient() {
        allIngredients[i].addEventListener('click' , function(e) {
               e.preventDefault();
        
-              const tagIngredients = document.createElement('p');
+              const tagIngredients = document.createElement('div');
               tag.appendChild(tagIngredients);
-              tagIngredients.setAttribute("class","tag tagingredient");
+              tagIngredients.setAttribute("class","tag tagingredient ");
        
-                   const spanClose = document.createElement('span');
+                   const spanClose = document.createElement('p');
                    tagIngredients.appendChild(spanClose);
-                   spanClose.setAttribute("class","spanclose");
+                   spanClose.setAttribute("class","spanclose mx-2");
                    spanClose.textContent = allIngredients[i].innerHTML;
        
        
