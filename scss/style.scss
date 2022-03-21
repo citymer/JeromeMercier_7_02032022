@@ -59,18 +59,26 @@ form img {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    text-align: center;
-    width: 130px; 
+    max-width: 15%;
     height: 37px;
-    background-color: $primary;
     border-radius: 5px;
+    &.tagingredient{
+        background-color: $primary;
+    }
+    &.tagappareil{
+        background-color: $success;
+    }
+    &.tagustensile{
+        background-color: $danger;
+    }
 }
 .spanclose {
-    color: white;
+    color: white;  
 }
 .close {
     height: 20px;
     width:20px;
+    cursor: pointer;
 }
 
 /* BOUTON ingrédients */

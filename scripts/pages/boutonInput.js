@@ -80,23 +80,57 @@ const selectContentUstensile = document.querySelector('.content_list_ustensiles'
 
 
 
+       const tag = document.querySelector('.tags');
+
+function createTagIngredient() {
 
     const allIngredients = document.getElementsByClassName('liste_ingredient');
     
-    const tag = document.querySelector('.tags');
-   for (let i = 0; i < allIngredients.length; i++) {
-
+    for (let i = 0; i < allIngredients.length; i++) {
+    
        allIngredients[i].addEventListener('click' , function(e) {
               e.preventDefault();
        
               const tagIngredients = document.createElement('p');
               tag.appendChild(tagIngredients);
-              tagIngredients.setAttribute("class","tag");
+              tagIngredients.setAttribute("class","tag tagingredient");
        
               const spanClose = document.createElement('span');
               tagIngredients.appendChild(spanClose);
               spanClose.setAttribute("class","spanclose");
-              spanClose.innerHTML = ingredient.liste;
+              spanClose.textContent = allIngredients[i].innerHTML;
+       
+       
+                   const close = document.createElement('img');
+                   tagIngredients.appendChild(close);
+                   close.setAttribute("class","close");
+                   close.setAttribute("src","img/close.png");
+       
+       
+       
+       })
+    } 
+}       
+
+
+function createtagAppareil() {
+
+    const allAppareils = document.getElementsByClassName('liste_appareil');
+    
+    
+   for (let i = 0; i < allAppareils.length; i++) {
+
+       allAppareils[i].addEventListener('click' , function(e) {
+              e.preventDefault();
+       
+              const tagIngredients = document.createElement('p');
+              tag.appendChild(tagIngredients);
+              tagIngredients.setAttribute("class","tag tagappareil");
+       
+              const spanClose = document.createElement('span');
+              tagIngredients.appendChild(spanClose);
+              spanClose.setAttribute("class","spanclose");
+              spanClose.textContent = allAppareils[i].innerHTML;
        
        
                    const close = document.createElement('img');
@@ -108,3 +142,36 @@ const selectContentUstensile = document.querySelector('.content_list_ustensiles'
        
        })
    } 
+}
+
+
+function createtagUstensiles() {
+
+    const allUstensiles = document.getElementsByClassName('liste_ustensile');
+    
+    
+   for (let i = 0; i < allUstensiles.length; i++) {
+
+       allUstensiles[i].addEventListener('click' , function(e) {
+              e.preventDefault();
+       
+              const tagIngredients = document.createElement('p');
+              tag.appendChild(tagIngredients);
+              tagIngredients.setAttribute("class","tag tagustensile");
+       
+              const spanClose = document.createElement('span');
+              tagIngredients.appendChild(spanClose);
+              spanClose.setAttribute("class","spanclose");
+              spanClose.textContent = allUstensiles[i].innerHTML;
+       
+       
+                   const close = document.createElement('img');
+                   tagIngredients.appendChild(close);
+                   close.setAttribute("class","close");
+                   close.setAttribute("src","img/close.png");
+       
+       
+       
+       })
+   } 
+}

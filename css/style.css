@@ -10717,11 +10717,21 @@ form img {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  text-align: center;
-  width: 130px;
+  max-width: 15%;
   height: 37px;
-  background-color: #3282f7;
   border-radius: 5px;
+}
+
+.tag.tagingredient {
+  background-color: #3282f7;
+}
+
+.tag.tagappareil {
+  background-color: #68d9a4;
+}
+
+.tag.tagustensile {
+  background-color: #ed6454;
 }
 
 .spanclose {
@@ -10731,6 +10741,7 @@ form img {
 .close {
   height: 20px;
   width: 20px;
+  cursor: pointer;
 }
 
 /* BOUTON ingrédients */
