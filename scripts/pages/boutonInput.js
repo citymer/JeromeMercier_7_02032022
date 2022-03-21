@@ -79,8 +79,8 @@ const selectContentUstensile = document.querySelector('.content_list_ustensiles'
        })
 
 
-
-       const tag = document.querySelector('.tags');
+       
+const tag = document.querySelector('.tags');
 
 function createTagIngredient() {
 
@@ -95,10 +95,10 @@ function createTagIngredient() {
               tag.appendChild(tagIngredients);
               tagIngredients.setAttribute("class","tag tagingredient");
        
-              const spanClose = document.createElement('span');
-              tagIngredients.appendChild(spanClose);
-              spanClose.setAttribute("class","spanclose");
-              spanClose.textContent = allIngredients[i].innerHTML;
+                   const spanClose = document.createElement('span');
+                   tagIngredients.appendChild(spanClose);
+                   spanClose.setAttribute("class","spanclose");
+                   spanClose.textContent = allIngredients[i].innerHTML;
        
        
                    const close = document.createElement('img');
@@ -123,18 +123,18 @@ function createtagAppareil() {
        allAppareils[i].addEventListener('click' , function(e) {
               e.preventDefault();
        
-              const tagIngredients = document.createElement('p');
-              tag.appendChild(tagIngredients);
-              tagIngredients.setAttribute("class","tag tagappareil");
+              const tagAppareils = document.createElement('p');
+              tag.appendChild(tagAppareils);
+              tagAppareils.setAttribute("class","tag tagappareil");
        
-              const spanClose = document.createElement('span');
-              tagIngredients.appendChild(spanClose);
-              spanClose.setAttribute("class","spanclose");
-              spanClose.textContent = allAppareils[i].innerHTML;
+                   const spanClose = document.createElement('span');
+                   tagAppareils.appendChild(spanClose);
+                   spanClose.setAttribute("class","spanclose");
+                   spanClose.textContent = allAppareils[i].innerHTML;
        
        
                    const close = document.createElement('img');
-                   tagIngredients.appendChild(close);
+                   tagAppareils.appendChild(close);
                    close.setAttribute("class","close");
                    close.setAttribute("src","img/close.png");
        
@@ -155,18 +155,18 @@ function createtagUstensiles() {
        allUstensiles[i].addEventListener('click' , function(e) {
               e.preventDefault();
        
-              const tagIngredients = document.createElement('p');
-              tag.appendChild(tagIngredients);
-              tagIngredients.setAttribute("class","tag tagustensile");
+              const tagUstensiles = document.createElement('p');
+              tag.appendChild(tagUstensiles);
+              tagUstensiles.setAttribute("class","tag tagustensile");
        
-              const spanClose = document.createElement('span');
-              tagIngredients.appendChild(spanClose);
-              spanClose.setAttribute("class","spanclose");
-              spanClose.textContent = allUstensiles[i].innerHTML;
+                  const spanClose = document.createElement('span');
+                  tagUstensiles.appendChild(spanClose);
+                  spanClose.setAttribute("class","spanclose");
+                  spanClose.textContent = allUstensiles[i].innerHTML;
        
        
                    const close = document.createElement('img');
-                   tagIngredients.appendChild(close);
+                   tagUstensiles.appendChild(close);
                    close.setAttribute("class","close");
                    close.setAttribute("src","img/close.png");
        
