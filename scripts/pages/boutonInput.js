@@ -1,4 +1,4 @@
-// creation tableau
+// creation tableaux
 
 let ingredientArray = [];
 let appareilArray = [];
@@ -45,33 +45,41 @@ const ustensileFiltre = [...new Set(filteredUstensile)]
 
 
 
- // crée une balise "p" pour chaque ingredient  
 const selectContentIngredient = document.querySelector('.content_list_ingredients');
+ // crée une balise "p" pour chaque ingredient  
+ function createIngredient(){
 
-     ingredientsFiltre.forEach((liste) => {
-         
-         const ingredient = document.createElement('p');
-         selectContentIngredient.appendChild(ingredient);
-         ingredient.setAttribute("class","liste liste_ingredient");
-         ingredient.textContent = liste;
-         
-       
-        })
+     
+          ingredientsFiltre.forEach((liste) => {
+              
+              const ingredient = document.createElement('p');
+              selectContentIngredient.appendChild(ingredient);
+              ingredient.setAttribute("class","liste liste_ingredient");
+              ingredient.textContent = liste;
+              
+            
+             })
+ }
 
+ const selectContentAppareil = document.querySelector('.content_list_appareils');
  // crée une balise "p" pour chaque appareil
-const selectContentAppareil = document.querySelector('.content_list_appareils');
+ function createAppareil() {
+     
+           appareilFiltre.forEach((liste) => {
+     
+               const appareils = document.createElement('p');
+               selectContentAppareil.appendChild(appareils);
+               appareils.setAttribute("class","liste liste_appareil");
+               appareils.textContent = liste;
+           })
 
-      appareilFiltre.forEach((liste) => {
-          const appareils = document.createElement('p');
-          selectContentAppareil.appendChild(appareils);
-          appareils.setAttribute("class","liste liste_appareil");
-          appareils.textContent = liste;
-      })
+ }
 
    // crée une balise "p" pour chaque ustensile  
 const selectContentUstensile = document.querySelector('.content_list_ustensiles');
      
        ustensileFiltre.forEach((liste) => {
+
            const ustensile = document.createElement('p');
            selectContentUstensile.appendChild(ustensile);
            ustensile.setAttribute("class","liste liste_ustensile");
@@ -79,13 +87,14 @@ const selectContentUstensile = document.querySelector('.content_list_ustensiles'
        })
 
 
-
+// selectionne la div qui va contenir les tags
 const tag = document.querySelector('.tags');
 
 // Crée un tag quand on clique sur un ingredient de la liste
 function createTagIngredient() {
 
     const allIngredients = document.getElementsByClassName('liste_ingredient');
+    console.log(allIngredients);
     
     for (let i = 0; i < allIngredients.length; i++) {
     
@@ -188,4 +197,35 @@ function createtagUstensiles() {
    } 
 }
 
+
+
+// sélectionne l'input du bouton ingredients
+const inputIngredient = document.querySelector('#inputIngredient');
+
+inputIngredient.addEventListener('keyup',function() {
+     
+    // récupére la valeur de l'input
+    const inputSearch = inputIngredient.value;
+
+    // filtre le tableau ingredient et récupere les ingredients correspondant à la saisie
+    const resultsearch = ingredientsFiltre.filter(ingredient => ingredient.toLocaleLowerCase().includes(inputSearch.toLocaleLowerCase()));
+
+    // on vide la liste d'ingrédient dans la page
+    selectContentIngredient.innerHTML = "";
+     
+    // on crée une balise pour chaque résultat
+    resultsearch.forEach(resultList => {
+
+        const ingredient = document.createElement('p');
+        selectContentIngredient.appendChild(ingredient);
+        ingredient.setAttribute("class","liste liste_ingredient");
+        ingredient.innerHTML = resultList;
+
+        
+        
+    })
+    createTagIngredient();
+
+   
+})
 

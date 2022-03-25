@@ -1,9 +1,11 @@
 function init() {
  
-    createTagIngredient();
-    createtagAppareil();
     createtagUstensiles();
-    
+    createIngredient()
+    createTagIngredient();
+    createAppareil();
+    createtagAppareil();
+    //wordSearchInput()
 };
 
 init();

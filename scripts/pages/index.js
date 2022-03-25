@@ -30,6 +30,7 @@ function articleRecipes(recette) {
                 const titreRecette = document.createElement('h5');
                 titreEtTemps.appendChild(titreRecette);
                 titreRecette.setAttribute("class","titre_recette");
+                titreRecette.id = "titre";
                 titreRecette.textContent = recette.name;
                 // DIV
                 const iconEtTemps = document.createElement('div');
@@ -53,6 +54,7 @@ function articleRecipes(recette) {
             const ingredientsEtRecette = document.createElement('div');
             divRecette.appendChild(ingredientsEtRecette);
             ingredientsEtRecette.setAttribute("class","ingredients_et_description");
+            ingredientsEtRecette.id = "ingredients_et_description";
 
                 // contenant ingrédient
                 const contentIngredients = document.createElement('div');
