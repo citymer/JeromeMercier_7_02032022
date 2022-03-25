@@ -1,4 +1,4 @@
-// creation tableaux
+/* :::::::::::           CREATION TABLEAUX (ingredient,appareil,ustensile)           ::::::::::: */
 
 let ingredientArray = [];
 let appareilArray = [];
@@ -36,6 +36,7 @@ const ingredientsFiltre = [...new Set(filteredIngredient)]
 // supprime les doublons dans "appareilArray" et crée un nouveau tableau
 const filteredAppareil = appareilArray.filter((el, index) => appareilArray.indexOf(el) !== index)
 const appareilFiltre = [...new Set(filteredAppareil)]
+console.log(appareilFiltre)
 
 
 // supprime les doublons dans "ustensileArray" et crée un nouveau tableau
@@ -43,10 +44,10 @@ const filteredUstensile = ustensileArray.filter((el, index) => ustensileArray.in
 const ustensileFiltre = [...new Set(filteredUstensile)]
 
 
-
+/* :::::::::::::::        CREATION DES LISTES          ::::::::::::: */
 
 const selectContentIngredient = document.querySelector('.content_list_ingredients');
- // crée une balise "p" pour chaque ingredient  
+ // crée une balise "p" pour chaque INGREDIENT  
  function createIngredient(){
 
      
@@ -62,7 +63,7 @@ const selectContentIngredient = document.querySelector('.content_list_ingredient
  }
 
  const selectContentAppareil = document.querySelector('.content_list_appareils');
- // crée une balise "p" pour chaque appareil
+ // crée une balise "p" pour chaque APPAREIL
  function createAppareil() {
      
            appareilFiltre.forEach((liste) => {
@@ -75,17 +76,24 @@ const selectContentIngredient = document.querySelector('.content_list_ingredient
 
  }
 
-   // crée une balise "p" pour chaque ustensile  
+   // crée une balise "p" pour chaque USTENSILE  
+
 const selectContentUstensile = document.querySelector('.content_list_ustensiles');
-     
-       ustensileFiltre.forEach((liste) => {
+function createUstensile() {
 
-           const ustensile = document.createElement('p');
-           selectContentUstensile.appendChild(ustensile);
-           ustensile.setAttribute("class","liste liste_ustensile");
-           ustensile.textContent = liste;
-       })
+    ustensileFiltre.forEach((liste) => {
 
+        const ustensile = document.createElement('p');
+        selectContentUstensile.appendChild(ustensile);
+        ustensile.setAttribute("class","liste liste_ustensile");
+        ustensile.textContent = liste;
+    })
+}     
+
+
+/*   :::::::::::::::           CREATION DES TAGS          ::::::::::::::  */
+
+    // TAG INGREDIENT //
 
 // selectionne la div qui va contenir les tags
 const tag = document.querySelector('.tags');
@@ -94,7 +102,6 @@ const tag = document.querySelector('.tags');
 function createTagIngredient() {
 
     const allIngredients = document.getElementsByClassName('liste_ingredient');
-    console.log(allIngredients);
     
     for (let i = 0; i < allIngredients.length; i++) {
     
@@ -124,10 +131,12 @@ function createTagIngredient() {
        
        })
     } 
-}       
+} 
+
+      // TAG APPAREIL //
 
 // Crée un tag quand on clique sur un appareil de la liste
-function createtagAppareil() {
+function createTagAppareil() {
 
     const allAppareils = document.getElementsByClassName('liste_appareil');
     
@@ -160,6 +169,8 @@ function createtagAppareil() {
        })
    } 
 }
+
+      // TAG USTENSILE //
 
 // Crée un tag quand on clique sur un ustensile de la liste
 function createtagUstensiles() {
@@ -197,7 +208,9 @@ function createtagUstensiles() {
    } 
 }
 
+/*       ::::::::::::::   TRIE DES LISTES : Ingredients , Appareils , Ustensiles   ::::::::::::       */
 
+          // INGREDIENTS //
 
 // sélectionne l'input du bouton ingredients
 const inputIngredient = document.querySelector('#inputIngredient');
@@ -225,6 +238,72 @@ inputIngredient.addEventListener('keyup',function() {
         
     })
     createTagIngredient();
+
+   
+})
+
+         // APPAREILS //
+
+// sélectionne l'input du bouton appareils
+const inputAppareil = document.querySelector('#inputAppareil');
+
+inputAppareil.addEventListener('keyup',function() {
+    
+    // récupére la valeur de l'input
+    const inputSearch = inputAppareil.value;
+    
+    // filtre le tableau appareil et récupere les appareils correspondant à la saisie
+    const resultsearch = appareilFiltre.filter(appareil => appareil.toLocaleLowerCase().includes(inputSearch.toLocaleLowerCase()));
+    
+
+    // on vide la liste d'appareil dans la page
+    selectContentAppareil.innerHTML = "";
+     
+    // on crée une balise pour chaque résultat
+    resultsearch.forEach(resultList => {
+            
+        const appareil = document.createElement('p');
+        selectContentAppareil.appendChild(appareil);
+        appareil.setAttribute("class","liste liste_appareil");
+        appareil.innerHTML = resultList;
+
+        
+        
+    })
+ 
+   
+    createTagAppareil();
+  
+})
+
+         // USTENSILES //
+
+// sélectionne l'input du bouton ingredients
+const inputUstensile = document.querySelector('#inputUstensile');
+
+inputUstensile.addEventListener('keyup',function() {
+     
+    // récupére la valeur de l'input
+    const inputSearch = inputUstensile.value;
+
+    // filtre le tableau ingredient et récupere les ingredients correspondant à la saisie
+    const resultsearch = ustensileFiltre.filter(ustensile => ustensile.toLocaleLowerCase().includes(inputSearch.toLocaleLowerCase()));
+
+    // on vide la liste d'ingrédient dans la page
+    selectContentUstensile.innerHTML = "";
+     
+    // on crée une balise pour chaque résultat
+    resultsearch.forEach(resultList => {
+
+        const ustensile = document.createElement('p');
+        selectContentUstensile.appendChild(ustensile);
+        ustensile.setAttribute("class","liste liste_ustensile");
+        ustensile.innerHTML = resultList;
+
+        
+        
+    })
+    createtagUstensiles();
 
    
 })
