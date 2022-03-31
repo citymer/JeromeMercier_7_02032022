@@ -72,7 +72,7 @@ form img {
         background-color: $danger;
     }
 }
-.spanclose {
+.tagtext {
     color: white;
     margin-bottom: 0;
  
@@ -118,8 +118,10 @@ form img {
     height: 69px;
     background-color: $secondary;
     font-size: 18px;
+    
        &:focus {
            box-shadow: none;
+           color: white;
        } 
        &::placeholder {
            color: white;

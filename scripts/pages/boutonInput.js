@@ -29,19 +29,18 @@ recipes.forEach((recettes) => {
 
 
 // supprime les doublons dans "ingredientArray" et crée un nouveau tableau
-const filteredIngredient = ingredientArray.filter((el, index) => ingredientArray.indexOf(el) !== index)
-const ingredientsFiltre = [...new Set(filteredIngredient)]
+const filteredIngredient = ingredientArray.filter((el, index) => ingredientArray.indexOf(el) !== index);
+const ingredientsFiltre = [...new Set(filteredIngredient)];
 
 
 // supprime les doublons dans "appareilArray" et crée un nouveau tableau
-const filteredAppareil = appareilArray.filter((el, index) => appareilArray.indexOf(el) !== index)
-const appareilFiltre = [...new Set(filteredAppareil)]
-console.log(appareilFiltre)
+const filteredAppareil = appareilArray.filter((el, index) => appareilArray.indexOf(el) !== index);
+const appareilFiltre = [...new Set(filteredAppareil)];
 
 
 // supprime les doublons dans "ustensileArray" et crée un nouveau tableau
-const filteredUstensile = ustensileArray.filter((el, index) => ustensileArray.indexOf(el) !== index)
-const ustensileFiltre = [...new Set(filteredUstensile)]
+const filteredUstensile = ustensileArray.filter((el, index) => ustensileArray.indexOf(el) !== index);
+const ustensileFiltre = [...new Set(filteredUstensile)];
 
 
 /* :::::::::::::::        CREATION DES LISTES          ::::::::::::: */
@@ -112,23 +111,56 @@ function createTagIngredient() {
               tag.appendChild(tagIngredients);
               tagIngredients.setAttribute("class","tag tagingredient ");
        
-                   const spanClose = document.createElement('p');
-                   tagIngredients.appendChild(spanClose);
-                   spanClose.setAttribute("class","spanclose mx-2");
-                   spanClose.textContent = allIngredients[i].innerHTML;
+                   const tagText = document.createElement('p');
+                   tagIngredients.appendChild(tagText);
+                   tagText.setAttribute("class","tagtext mx-2");
+                   tagText.textContent = allIngredients[i].innerHTML;
        
        
                    const close = document.createElement('img');
                    tagIngredients.appendChild(close);
                    close.setAttribute("class","close");
                    close.setAttribute("src","img/close.png");
-                   
+
+                   // efface liste
                    close.addEventListener('click', function(e) {
                     e.preventDefault;
                     tagIngredients.remove();
+
+                });
+                
+                 // referme l'INPUT du menu déroulant
+                inputIngredients.style.display = "none";
+                boutonIngredients.style.display = "block";
+                 
+                // récupère le texte du tag
+                let valueTagText = tagText.innerHTML;
+                
+                 // efface tous les articles contenus dans le "MAIN"
+                document.querySelector('#main').innerHTML = "";
+                
+                /* parcours tout le tableau "recipes" et recherche les recettes qui contiennent l'ingredient choisi
+                 puis créer un article pour chaque résultat */
+
+                recipes.forEach((recette) => {
+                    recette.ingredients.forEach((liste) => {
+                        let ingredient = liste.ingredient;
+                        let result = ingredient.includes(valueTagText);
+                        if (result === true) {
+                            articleRecipes(recette);
+                        }
+                    })
                 })
+                
+                // quand on ferme un tag 
+                close.addEventListener('click', function() {
+                    recipes.forEach(articleRecipes);
+                });
+            
+                
+        
        
-       
+                
        })
     } 
 } 
@@ -150,10 +182,10 @@ function createTagAppareil() {
               tag.appendChild(tagAppareils);
               tagAppareils.setAttribute("class","tag tagappareil");
        
-                   const spanClose = document.createElement('span');
-                   tagAppareils.appendChild(spanClose);
-                   spanClose.setAttribute("class","spanclose mx-2");
-                   spanClose.textContent = allAppareils[i].innerHTML;
+                   const tagText = document.createElement('span');
+                   tagAppareils.appendChild(tagText);
+                   tagText.setAttribute("class","tagtext mx-2");
+                   tagText.textContent = allAppareils[i].innerHTML;
        
        
                    const close = document.createElement('img');
@@ -165,7 +197,10 @@ function createTagAppareil() {
                     e.preventDefault;
                     tagAppareils.remove();
                 }) 
-       
+                inputAppareils.style.display = "none";
+                boutonAppareils.style.display = "block";
+
+         
        })
    } 
 }
@@ -189,7 +224,7 @@ function createtagUstensiles() {
        
                   const spanClose = document.createElement('span');
                   tagUstensiles.appendChild(spanClose);
-                  spanClose.setAttribute("class","spanclose mx-2");
+                  spanClose.setAttribute("class","tagtext mx-2");
                   spanClose.textContent = allUstensiles[i].innerHTML;
        
        
@@ -203,6 +238,9 @@ function createtagUstensiles() {
                        e.preventDefault;
                        tagUstensiles.remove();
                    })
+
+             inputUstensiles.style.display = "none";
+             boutonUstensiles.style.display = "block";      
        
        })
    } 
@@ -238,6 +276,7 @@ inputIngredient.addEventListener('keyup',function() {
         
     })
     createTagIngredient();
+  
 
    
 })

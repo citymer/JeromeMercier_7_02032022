@@ -10733,7 +10733,7 @@ form img {
   background-color: #ed6454;
 }
 
-.spanclose {
+.tagtext {
   color: white;
   margin-bottom: 0;
 }
@@ -10787,6 +10787,7 @@ form img {
 
 .input_ingredient:focus {
   box-shadow: none;
+  color: white;
 }
 
 .input_ingredient::placeholder {

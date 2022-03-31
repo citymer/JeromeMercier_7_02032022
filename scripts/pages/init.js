@@ -1,6 +1,7 @@
 function init() {
     createIngredient();
     createTagIngredient();
+   
     createAppareil();
     createTagAppareil();
     createUstensile();
