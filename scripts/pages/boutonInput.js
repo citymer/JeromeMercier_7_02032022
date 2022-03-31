@@ -200,6 +200,31 @@ function createTagAppareil() {
                 inputAppareils.style.display = "none";
                 boutonAppareils.style.display = "block";
 
+                     // récupère le texte du tag
+                     let valueTagText = tagText.innerHTML;
+                
+                     // efface tous les articles contenus dans le "MAIN"
+                    document.querySelector('#main').innerHTML = "";
+                    
+                    /* parcours tout le tableau "recipes" et recherche les recettes qui contiennent l'appareil choisi
+                     puis créer un article pour chaque résultat */
+    
+                    recipes.forEach((recette) => {
+                        console.log(recette.appliance);
+                            let appareil =  recette.appliance
+                            
+                            let result = appareil.includes(valueTagText);
+                            if (result === true) {
+                                articleRecipes(recette);
+                            }
+                        
+                    })
+                    
+                    // quand on ferme un tag 
+                    close.addEventListener('click', function() {
+                        recipes.forEach(articleRecipes);
+                    });
+
          
        })
    } 
@@ -222,10 +247,10 @@ function createtagUstensiles() {
               tag.appendChild(tagUstensiles);
               tagUstensiles.setAttribute("class","tag tagustensile");
        
-                  const spanClose = document.createElement('span');
-                  tagUstensiles.appendChild(spanClose);
-                  spanClose.setAttribute("class","tagtext mx-2");
-                  spanClose.textContent = allUstensiles[i].innerHTML;
+                  const tagText = document.createElement('span');
+                  tagUstensiles.appendChild(tagText);
+                  tagText.setAttribute("class","tagtext mx-2");
+                  tagText.textContent = allUstensiles[i].innerHTML;
        
        
                    const close = document.createElement('img');
@@ -240,7 +265,32 @@ function createtagUstensiles() {
                    })
 
              inputUstensiles.style.display = "none";
-             boutonUstensiles.style.display = "block";      
+             boutonUstensiles.style.display = "block"; 
+             
+               // récupère le texte du tag
+               let valueTagText = tagText.innerHTML;
+                
+               // efface tous les articles contenus dans le "MAIN"
+              document.querySelector('#main').innerHTML = "";
+              
+              /* parcours tout le tableau "recipes" et recherche les recettes qui contiennent l'ustensile choisi
+               puis créer un article pour chaque résultat */
+
+              recipes.forEach((recette) => {
+                  console.log(recette.ustensils);
+                      let ustensile =  recette.ustensils
+                      
+                      let result = ustensile.includes(valueTagText);
+                      if (result === true) {
+                          articleRecipes(recette);
+                      }
+                  
+              })
+              
+              // quand on ferme un tag 
+              close.addEventListener('click', function() {
+                  recipes.forEach(articleRecipes);
+              });
        
        })
    } 
