@@ -90,7 +90,7 @@ function createUstensile() {
 }     
 
 
-/*   :::::::::::::::           CREATION DES TAGS          ::::::::::::::  */
+/*   :::::::::::::::           CREATION DES TAGS ET FILTRE         ::::::::::::::  */
 
     // TAG INGREDIENT //
 
@@ -98,15 +98,17 @@ function createUstensile() {
 const tag = document.querySelector('.tags');
 
 // Crée un tag quand on clique sur un ingredient de la liste
+const allIngredients = document.getElementsByClassName('liste_ingredient');
+
 function createTagIngredient() {
 
-    const allIngredients = document.getElementsByClassName('liste_ingredient');
     
     for (let i = 0; i < allIngredients.length; i++) {
     
        allIngredients[i].addEventListener('click' , function(e) {
               e.preventDefault();
-       
+            
+           
               const tagIngredients = document.createElement('div');
               tag.appendChild(tagIngredients);
               tagIngredients.setAttribute("class","tag tagingredient ");
@@ -126,35 +128,25 @@ function createTagIngredient() {
                    close.addEventListener('click', function(e) {
                     e.preventDefault;
                     tagIngredients.remove();
-
+                   
                 });
                 
                  // referme l'INPUT du menu déroulant
                 inputIngredients.style.display = "none";
                 boutonIngredients.style.display = "block";
-                 
+
                 // récupère le texte du tag
                 let valueTagText = tagText.innerHTML;
-                
-                 // efface tous les articles contenus dans le "MAIN"
-                document.querySelector('#main').innerHTML = "";
-                
-                /* parcours tout le tableau "recipes" et recherche les recettes qui contiennent l'ingredient choisi
-                 puis créer un article pour chaque résultat */
+        
+       
+                // appel la fonction qui trie les recettes par TAG
+               filterIngredients(valueTagText,recipes);
 
-                recipes.forEach((recette) => {
-                    recette.ingredients.forEach((liste) => {
-                        let ingredient = liste.ingredient;
-                        let result = ingredient.includes(valueTagText);
-                        if (result === true) {
-                            articleRecipes(recette);
-                        }
-                    })
-                })
                 
                 // quand on ferme un tag 
                 close.addEventListener('click', function() {
                     recipes.forEach(articleRecipes);
+
                 });
             
                 
@@ -164,7 +156,7 @@ function createTagIngredient() {
        })
     } 
 } 
-
+createTagIngredient()
       // TAG APPAREIL //
 
 // Crée un tag quand on clique sur un appareil de la liste
@@ -203,22 +195,8 @@ function createTagAppareil() {
                      // récupère le texte du tag
                      let valueTagText = tagText.innerHTML;
                 
-                     // efface tous les articles contenus dans le "MAIN"
-                    document.querySelector('#main').innerHTML = "";
-                    
-                    /* parcours tout le tableau "recipes" et recherche les recettes qui contiennent l'appareil choisi
-                     puis créer un article pour chaque résultat */
-    
-                    recipes.forEach((recette) => {
-                        console.log(recette.appliance);
-                            let appareil =  recette.appliance
-                            
-                            let result = appareil.includes(valueTagText);
-                            if (result === true) {
-                                articleRecipes(recette);
-                            }
+                    filterAppareils(valueTagText,recipes);
                         
-                    })
                     
                     // quand on ferme un tag 
                     close.addEventListener('click', function() {
@@ -270,22 +248,7 @@ function createtagUstensiles() {
                // récupère le texte du tag
                let valueTagText = tagText.innerHTML;
                 
-               // efface tous les articles contenus dans le "MAIN"
-              document.querySelector('#main').innerHTML = "";
-              
-              /* parcours tout le tableau "recipes" et recherche les recettes qui contiennent l'ustensile choisi
-               puis créer un article pour chaque résultat */
-
-              recipes.forEach((recette) => {
-                  console.log(recette.ustensils);
-                      let ustensile =  recette.ustensils
-                      
-                      let result = ustensile.includes(valueTagText);
-                      if (result === true) {
-                          articleRecipes(recette);
-                      }
-                  
-              })
+              filterUstensiles(valueTagText,recipes);
               
               // quand on ferme un tag 
               close.addEventListener('click', function() {

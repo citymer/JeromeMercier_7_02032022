@@ -292,7 +292,7 @@ const recipes = [
         "time": 60,
         "description": "Hachez les noix grossièrement. Faire fondre le chocolat avec le beurre. Mélanger les oeuf et le sucre et mélanger au chocolat. Ajouter la farine. Mélanger afin d'avoir quelque chose d'homogène puis incorporer les noix. Verser la préparation dans un moule de préférence rectangulaire. Cuire 2O à 25 minutes à 180°. Sortez du four et attendez quelques minutes pour démouler. Servir avec une boule de glace pour plus de gourmandise.",
         "appliance": "Four",
-        "ustensils": ["moule à gateaux", "casserolle"]
+        "ustensils": ["moule à gateaux", "casserole"]
     },
     {
         "id": 9,
@@ -741,7 +741,7 @@ const recipes = [
             }
         ],
         "time": 30,
-        "description":"Cuisiner la viande hachée dans une poelle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la crème fraiche à la viande hachée. Serivir.",
+        "description":"Cuisiner la viande hachée dans une poelle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la crème fraiche à la viande hachée. Servir.",
         "appliance": "Casserole.",
         "ustensils":["Cuillère en bois", "louche", "couteau"]
     },
@@ -1048,7 +1048,7 @@ const recipes = [
         "time": 60,
         "description":"Mettre tous les ingrédients dans une cocotte. ajouter de l'eau pour recouvrir l'ensemble et laisser cuirre à petit feur pour 1 heure. Passer au mixer. Salez, poivrez. C'est prêt",
         "appliance": "Mixeur",
-        "ustensils":["casserolle", "cuillère en bois"]
+        "ustensils":["casserole", "cuillère en bois"]
     },
     {
         "id": 31,
