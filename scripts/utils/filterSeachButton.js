@@ -11,7 +11,7 @@ function filterIngredients(valueTagText,recipes) {
    recipes.forEach((recette) => {
        recette.ingredients.forEach((liste) => {
            let ingredient = liste.ingredient;
-           let result = ingredient.includes(valueTagText);
+           let result = ingredient.toLocaleLowerCase().includes(valueTagText.toLocaleLowerCase());
            if (result === true) {
                articleRecipes(recette);
            }
