@@ -3,62 +3,63 @@ const valueInput = mainBar.value;
 const loupe = document.querySelector('.loupe');
 
 // recherche une correspondance dans le titre des recettes
-function filterTitle(recette) {
-
-    recipes.forEach((recette) => {
-        let title = recette.name;
-        let result = title.toLocaleLowerCase().includes(mainBar.value.toLocaleLowerCase());
-    
-        
-        if (result === true) {
-            articleRecipes(recette);
-            
-            
-     
-        }
-        
-    })
+function filterTitle(recette) { 
+    let title = recette.name;
+    return title.toLocaleLowerCase().includes(mainBar.value.toLocaleLowerCase());
 }
 
 // recherche une correspondance dans la description
-function filterDescription() {
+function filterDescription(recette) { 
+    let description = recette.description;
+    return description.toLocaleLowerCase().includes(mainBar.value.toLocaleLowerCase());       
+}
 
-    recipes.forEach((recette) => {
-        let description = recette.description;
-        let result = description.toLocaleLowerCase().includes(mainBar.value.toLocaleLowerCase());
-        
+function filterIngredient(recette) {
+    let result = false;
+    recette.ingredients.forEach((liste) => {
+        let ingredient = liste.ingredient;
+        result = ingredient.toLocaleLowerCase().includes(mainBar.value.toLocaleLowerCase());
         if (result === true) {
-            articleRecipes(recette);
-        
-            
+            return true;
         }
     })
+    return result;
 }
 
 // recherche dans le titre,les ingredients,la description une correspondance avec la saisie dans la barre de recherche
-function search() {
-    
+function search(recipes) {
+    let resultat = [];
     if (mainBar.value.length > 2){
-
-        let main = document.querySelector('#main').innerHTML = "";
-      
-        filterTitle();
-        filterIngredients(mainBar.value,recipes);
-        filterDescription();
-   
-        
+        recipes.forEach((recette) => {
+            if (filterTitle(recette) ||filterIngredient(recette) || filterDescription(recette)) {
+                resultat.push(recette);
+            }
+        })   
     }
+    if (mainBar.value.length < 3) {
+        return recipes;
+    }
+    return resultat;
 }
 
 // déclenche la fonction "SEARCH" en cas de saisie dans la barre de recherche
 mainBar.addEventListener('keyup',function() {
-  
-        search();
+    let main = document.querySelector('#main').innerHTML = "";
+    let resultat = search(recipes);
+    resultat.forEach((recette) => {
+        articleRecipes(recette);
+    })
+    
 })
 
 // déclenche la fonction "SEARCH" en cas de clic sur l'image loupe
 loupe.addEventListener('click', function() {
-    search();
+    let main = document.querySelector('#main').innerHTML = "";
+    let resultat = search(recipes);
+    resultat.forEach((recette) => {
+        articleRecipes(recette);
+    })
+    
 })
 
 
