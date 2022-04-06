@@ -27,20 +27,15 @@ recipes.forEach((recettes) => {
 
 
 
-
 // supprime les doublons dans "ingredientArray" et crée un nouveau tableau
-const filteredIngredient = ingredientArray.filter((el, index) => ingredientArray.indexOf(el) !== index);
-const ingredientsFiltre = [...new Set(filteredIngredient)];
-
+let ingredientsFiltre = Array.from(new Set(ingredientArray));
 
 // supprime les doublons dans "appareilArray" et crée un nouveau tableau
-const filteredAppareil = appareilArray.filter((el, index) => appareilArray.indexOf(el) !== index);
-const appareilFiltre = [...new Set(filteredAppareil)];
-
+let appareilFiltre = Array.from(new Set(appareilArray));
 
 // supprime les doublons dans "ustensileArray" et crée un nouveau tableau
-const filteredUstensile = ustensileArray.filter((el, index) => ustensileArray.indexOf(el) !== index);
-const ustensileFiltre = [...new Set(filteredUstensile)];
+let ustensileFiltre = Array.from(new Set(ustensileArray));
+
 
 
 /* :::::::::::::::        CREATION DES LISTES          ::::::::::::: */
@@ -109,9 +104,9 @@ function createTagIngredient() {
               e.preventDefault();
             
            
-              const tagIngredients = document.createElement('div');
-              tag.appendChild(tagIngredients);
-              tagIngredients.setAttribute("class","tag tagingredient ");
+            const tagIngredients = document.createElement('div');
+            tag.appendChild(tagIngredients);
+            tagIngredients.setAttribute("class","tag tagingredient ");
        
                    const tagText = document.createElement('p');
                    tagIngredients.appendChild(tagText);
@@ -126,37 +121,36 @@ function createTagIngredient() {
 
                    // efface liste
                    close.addEventListener('click', function(e) {
-                    e.preventDefault;
-                    tagIngredients.remove();
+                      e.preventDefault;
+                      tagIngredients.remove();
                    
-                });
+                    });
                 
-                 // referme l'INPUT du menu déroulant
-                inputIngredients.style.display = "none";
-                boutonIngredients.style.display = "block";
+            // referme l'INPUT du menu déroulant
+            inputIngredients.style.display = "none";
+            boutonIngredients.style.display = "block";
 
-                // récupère le texte du tag
-                let valueTagText = tagText.innerHTML;
+            // récupère le texte du tag
+            let valueTagText = tagText.innerHTML;
         
        
-                // appel la fonction qui trie les recettes par TAG
-               filterIngredients(valueTagText,recipes);
+            // appel la fonction qui trie les recettes par TAG
+            filterIngredients(valueTagText,recipes);
 
                 
-                // quand on ferme un tag 
-                close.addEventListener('click', function() {
+            // quand on ferme un tag 
+            close.addEventListener('click', function() {
+
                     recipes.forEach(articleRecipes);
 
-                });
-            
-                
-        
-       
+            });                   
                 
        })
     } 
 } 
-createTagIngredient()
+
+
+
       // TAG APPAREIL //
 
 // Crée un tag quand on clique sur un appareil de la liste
@@ -189,19 +183,21 @@ function createTagAppareil() {
                     e.preventDefault;
                     tagAppareils.remove();
                 }) 
-                inputAppareils.style.display = "none";
-                boutonAppareils.style.display = "block";
 
-                     // récupère le texte du tag
-                     let valueTagText = tagText.innerHTML;
+            inputAppareils.style.display = "none";
+            boutonAppareils.style.display = "block";
+
+             // récupère le texte du tag
+             let valueTagText = tagText.innerHTML;
                 
-                    filterAppareils(valueTagText,recipes);
+            filterAppareils(valueTagText,recipes);
                         
                     
-                    // quand on ferme un tag 
-                    close.addEventListener('click', function() {
+             // quand on ferme un tag 
+            close.addEventListener('click', function() {
+
                         recipes.forEach(articleRecipes);
-                    });
+            });
 
          
        })
@@ -242,18 +238,18 @@ function createtagUstensiles() {
                        tagUstensiles.remove();
                    })
 
-             inputUstensiles.style.display = "none";
-             boutonUstensiles.style.display = "block"; 
+            inputUstensiles.style.display = "none";
+            boutonUstensiles.style.display = "block"; 
              
-               // récupère le texte du tag
-               let valueTagText = tagText.innerHTML;
+            // récupère le texte du tag
+            let valueTagText = tagText.innerHTML;
                 
-              filterUstensiles(valueTagText,recipes);
+            filterUstensiles(valueTagText,recipes);
               
-              // quand on ferme un tag 
-              close.addEventListener('click', function() {
+            // quand on ferme un tag 
+            close.addEventListener('click', function() {
                   recipes.forEach(articleRecipes);
-              });
+            });
        
        })
    } 

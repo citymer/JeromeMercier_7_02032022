@@ -102,7 +102,6 @@ function articleRecipes(recette) {
  recipes.forEach(articleRecipes);
 
 
- 
 
 
 

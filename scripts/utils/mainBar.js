@@ -1,18 +1,20 @@
 const mainBar = document.querySelector('#input');
 const valueInput = mainBar.value;
-let resultPage = [];
+const loupe = document.querySelector('.loupe');
 
 // recherche une correspondance dans le titre des recettes
-function filterTitle() {
+function filterTitle(recette) {
 
     recipes.forEach((recette) => {
         let title = recette.name;
-        let result = title.includes(mainBar.value);
+        let result = title.toLocaleLowerCase().includes(mainBar.value.toLocaleLowerCase());
+    
         
         if (result === true) {
             articleRecipes(recette);
-            console.log(articleRecipes(recette));
             
+            
+     
         }
         
     })
@@ -23,30 +25,42 @@ function filterDescription() {
 
     recipes.forEach((recette) => {
         let description = recette.description;
-        let result = description.includes(mainBar.value);
-        console.log(mainBar.value);
-
+        let result = description.toLocaleLowerCase().includes(mainBar.value.toLocaleLowerCase());
+        
         if (result === true) {
             articleRecipes(recette);
+        
             
         }
-        
     })
 }
 
-// déclenche la recherche à partir du 3éme caractère
-mainBar.addEventListener('keyup',function() {
-  
-
+// recherche dans le titre,les ingredients,la description une correspondance avec la saisie dans la barre de recherche
+function search() {
+    
     if (mainBar.value.length > 2){
 
-        document.querySelector('#main').innerHTML = "";
+        let main = document.querySelector('#main').innerHTML = "";
       
-
         filterTitle();
         filterIngredients(mainBar.value,recipes);
         filterDescription();
-
+   
         
     }
+}
+
+// déclenche la fonction "SEARCH" en cas de saisie dans la barre de recherche
+mainBar.addEventListener('keyup',function() {
+  
+        search();
 })
+
+// déclenche la fonction "SEARCH" en cas de clic sur l'image loupe
+loupe.addEventListener('click', function() {
+    search();
+})
+
+
+
+

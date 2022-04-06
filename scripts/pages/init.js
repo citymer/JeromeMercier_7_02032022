@@ -6,7 +6,7 @@ function init() {
     createTagAppareil();
     createUstensile();
     createtagUstensiles();
-    //wordSearchInput()
+    
 };
 
 init();
