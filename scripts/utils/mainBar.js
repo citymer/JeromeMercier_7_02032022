@@ -2,6 +2,7 @@ const mainBar = document.querySelector('#input');
 const valueInput = mainBar.value;
 const loupe = document.querySelector('.loupe');
 
+
 // recherche une correspondance dans le titre des recettes
 function filterTitle(recette) { 
     let title = recette.name;
@@ -34,10 +35,13 @@ function search(recipes) {
             if (filterTitle(recette) ||filterIngredient(recette) || filterDescription(recette)) {
                 resultat.push(recette);
             }
-        })   
+        }) 
     }
     if (mainBar.value.length < 3) {
         return recipes;
+    }
+    if (resultat.length === 0) {
+        messageError();  
     }
     return resultat;
 }
@@ -63,5 +67,12 @@ loupe.addEventListener('click', function() {
 })
 
 
-
+// crée un message en cas d'aucune correspondance avec la recherche
+function messageError() {
+        const message = document.createElement('div');
+        main.appendChild(message);
+        message.setAttribute("class","message");
+        message.textContent = "Aucune recette correspond à votre critère...vous pouvez checher << tarte aux pommes >> , << poisson >> , etc.";
+   
+}
 
