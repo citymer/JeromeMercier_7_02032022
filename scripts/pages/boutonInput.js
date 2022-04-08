@@ -136,7 +136,7 @@ function createTagIngredient() {
        
             // appel la fonction qui trie les recettes par TAG
             filterIngredients(valueTagText,recipes);
-
+            
                 
             // quand on ferme un tag 
             close.addEventListener('click', function() {

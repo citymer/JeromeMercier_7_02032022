@@ -35,7 +35,7 @@ function search(recipes) {
             if (filterTitle(recette) ||filterIngredient(recette) || filterDescription(recette)) {
                 resultat.push(recette);
             }
-        }) 
+        })  
     }
     if (mainBar.value.length < 3) {
         return recipes;
@@ -72,7 +72,7 @@ function messageError() {
         const message = document.createElement('div');
         main.appendChild(message);
         message.setAttribute("class","message");
-        message.textContent = "Aucune recette correspond à votre critère...vous pouvez checher << tarte aux pommes >> , << poisson >> , etc.";
+        message.textContent = "Aucune recette correspond à votre critère...vous pouvez chercher << tarte aux pommes >> , << poisson >> , etc.";
    
 }
 
