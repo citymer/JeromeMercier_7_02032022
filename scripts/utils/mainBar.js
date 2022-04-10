@@ -30,6 +30,7 @@ function filterIngredient(recette) {
 // recherche dans le titre,les ingredients,la description une correspondance avec la saisie dans la barre de recherche
 function search(recipes) {
     let resultat = [];
+    
     if (mainBar.value.length > 2){
         recipes.forEach((recette) => {
             if (filterTitle(recette) ||filterIngredient(recette) || filterDescription(recette)) {
@@ -43,6 +44,8 @@ function search(recipes) {
     if (resultat.length === 0) {
         messageError();  
     }
+
+    
     return resultat;
 }
 
@@ -53,6 +56,8 @@ mainBar.addEventListener('keyup',function() {
     resultat.forEach((recette) => {
         articleRecipes(recette);
     })
+    updateIngredientList();
+    updateAppareilList();
     
 })
 
@@ -76,3 +81,35 @@ function messageError() {
    
 }
 
+// actualise la liste d'ingredient
+function updateIngredientList() {
+    document.querySelector('.content_list_ingredients').innerHTML = "";
+    let resultat = search(recipes);
+    resultat.forEach(recette => {
+        let ingredients = recette.ingredients;
+        ingredients.forEach(liste => {
+    
+                const ingredient = document.createElement('p');
+                selectContentIngredient.appendChild(ingredient);
+                ingredient.setAttribute("class","liste liste_ingredient");
+                ingredient.textContent = liste.ingredient;
+            
+        })
+    })
+}
+
+// actualise la liste d'appareil
+function updateAppareilList() {
+    document.querySelector('.content_list_appareils').innerHTML = "";
+    let resultat = search(recipes);
+    resultat.forEach(recette => {
+        console.log(recette.appliance);
+
+        const appareils = document.createElement('p');
+        selectContentAppareil.appendChild(appareils);
+        appareils.setAttribute("class","liste liste_appareil");
+        appareils.textContent = recette.appliance;
+            
+        
+    })
+}

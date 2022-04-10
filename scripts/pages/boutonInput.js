@@ -346,13 +346,8 @@ inputUstensile.addEventListener('keyup',function() {
         const ustensile = document.createElement('p');
         selectContentUstensile.appendChild(ustensile);
         ustensile.setAttribute("class","liste liste_ustensile");
-        ustensile.innerHTML = resultList;
-
-        
-        
+        ustensile.innerHTML = resultList;    
     })
-    createtagUstensiles();
-
-   
+    createtagUstensiles();   
 })
 
