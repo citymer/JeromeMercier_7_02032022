@@ -89,15 +89,18 @@ function updateIngredientList() {
     let liste = [];
     resultat.forEach(recette => {
         let ingredients = recette.ingredients;
-        ingredients.forEach(liste => {
-    
-                const ingredient = document.createElement('p');
-                selectContentIngredient.appendChild(ingredient);
-                ingredient.setAttribute("class","liste liste_ingredient");
-                ingredient.textContent = liste.ingredient;
-            
-        })
+        for(let list of ingredients) {
+            liste.push(list.ingredient);
+        }
     })
+    let ingredientSansDoublons = Array.from(new Set(liste));
+    ingredientSansDoublons.forEach(ingredients => {
+          const ingredient = document.createElement('p');
+          selectContentIngredient.appendChild(ingredient);
+          ingredient.setAttribute("class","liste liste_ingredient");
+          ingredient.textContent = ingredients;   
+    })
+    createTagIngredient();
 }
 
 // actualise la liste d'appareil
