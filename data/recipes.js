@@ -252,7 +252,7 @@ const recipes = [
         "time": 50,
         "description": "Etaler la pate dans les moules à tartelette. Faire cuire la pate 30 minutes. Découper le chocolat en morceau et le faire chauffer, y ajouter la crême liquide, ajouter le beurre et remuer jusqu'à avoir une pâte homogène. Verser la pate sur les tartelettes. Couper les fraises en 2 et les positionner sur ",
         "appliance":"Four",
-        "ustensils":["moule à tartelettes (6)", "casserolle"]
+        "ustensils":["moule à tartelettes (6)", "casserole"]
     }, {
         "id": 8,
         "name": "Brownie",
@@ -778,7 +778,7 @@ const recipes = [
         "time": 30,
         "description":"Faire fondre le chocolat et le beurre au bain marie. Dans un saladier battre les oeufs avec le sucre jusqu'à obtenir une texture de type mousse. Ajouter la farine ainsi que le mélange de beurre et chocolat fondu. Beurrez le moule à gateaux. Mettre au four préchauffé à 200° puis faites chauffer pendant 15 minutes. C'est prêt. Servir avec une boule de glace ou une crême dessert.",
         "appliance": "Four",
-        "ustensils":["moule à gateaux", "fouet", "casserolle"]
+        "ustensils":["moule à gateaux", "fouet", "casserole"]
     },
     {
         "id": 23,
@@ -992,7 +992,7 @@ const recipes = [
         "time": 80,
         "description":"Emincer les blanc de poireaux et les faire chauffer dans 25 grammes de beurre. AJouter les pommes de terres coupées en morceaux. Ajouter l'eau et laisser mijoter pour 45 minutes. Chauffer l'oseille avec le beurre restant puis incorporer le tout. Mixez. Ajoutez la crème. Bon appetit.",
         "appliance": "Mixeur",
-        "ustensils":["casserolle","couteau"]
+        "ustensils":["casserole","couteau"]
     },
     {
         "id": 29,

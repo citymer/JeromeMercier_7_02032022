@@ -58,6 +58,7 @@ mainBar.addEventListener('keyup',function() {
     })
     updateIngredientList();
     updateAppareilList();
+    updateUstensileList();
     
 })
 
@@ -85,6 +86,7 @@ function messageError() {
 function updateIngredientList() {
     document.querySelector('.content_list_ingredients').innerHTML = "";
     let resultat = search(recipes);
+    let liste = [];
     resultat.forEach(recette => {
         let ingredients = recette.ingredients;
         ingredients.forEach(liste => {
@@ -102,14 +104,37 @@ function updateIngredientList() {
 function updateAppareilList() {
     document.querySelector('.content_list_appareils').innerHTML = "";
     let resultat = search(recipes);
+    let liste = [];
     resultat.forEach(recette => {
-        console.log(recette.appliance);
-
+        liste.push(recette.appliance);    
+    })
+    let appareilSansDoublons = Array.from(new Set(liste));
+    appareilSansDoublons.forEach(appareil => {
         const appareils = document.createElement('p');
         selectContentAppareil.appendChild(appareils);
         appareils.setAttribute("class","liste liste_appareil");
-        appareils.textContent = recette.appliance;
-            
-        
+        appareils.textContent = appareil;
     })
+    createTagAppareil();
+}
+
+// actualise la liste d'ustensile
+function updateUstensileList() {
+    document.querySelector('.content_list_ustensiles').innerHTML = "";
+    let resultat = search(recipes);
+    let liste = [];
+    resultat.forEach(recette => {
+        let ustensils = recette.ustensils;
+        ustensils.forEach(ustensiles => {
+            liste.push(ustensiles);    
+        })
+    })
+    let ustensileSansDoublons = Array.from(new Set(liste));
+    ustensileSansDoublons.forEach(ustensile => {
+        const ustensiles = document.createElement('p');
+        selectContentUstensile.appendChild(ustensiles);
+        ustensiles.setAttribute("class","liste liste_ustensile");
+        ustensiles.textContent = ustensile;
+    })
+    createtagUstensiles();
 }
