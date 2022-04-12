@@ -69,6 +69,9 @@ loupe.addEventListener('click', function() {
     resultat.forEach((recette) => {
         articleRecipes(recette);
     })
+    updateIngredientList();
+    updateAppareilList();
+    updateUstensileList();
     
 })
 

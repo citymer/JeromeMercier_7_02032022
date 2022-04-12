@@ -100,7 +100,7 @@ function createTagIngredient() {
     
     for (let i = 0; i < allIngredients.length; i++) {
     
-       allIngredients[i].addEventListener('click' , function(e) {
+        allIngredients[i].addEventListener('click' , function(e) {
               e.preventDefault();
             
            
@@ -136,13 +136,12 @@ function createTagIngredient() {
        
             // appel la fonction qui trie les recettes par TAG
             filterIngredients(valueTagText,recipes);
+         
             
                 
             // quand on ferme un tag 
             close.addEventListener('click', function() {
-
-                    recipes.forEach(articleRecipes);
-
+                filterCloseTag();
             });                   
                 
        })
@@ -195,8 +194,7 @@ function createTagAppareil() {
                     
              // quand on ferme un tag 
             close.addEventListener('click', function() {
-
-                        recipes.forEach(articleRecipes);
+                filterCloseTag();
             });
 
          
@@ -248,13 +246,22 @@ function createtagUstensiles() {
               
             // quand on ferme un tag 
             close.addEventListener('click', function() {
-                  recipes.forEach(articleRecipes);
+                 filterCloseTag();
             });
        
        })
    } 
 }
 
+function filterCloseTag () {
+    if (mainBar.value.length > 2) {
+        let resultat = search(recipes);
+            resultat.forEach(articleRecipes);
+    }else{
+        let resultat = search(recipes);
+        resultat.forEach(articleRecipes);
+    }
+}
 /*       ::::::::::::::   TRIE DES LISTES : Ingredients , Appareils , Ustensiles   ::::::::::::       */
 
           // INGREDIENTS //

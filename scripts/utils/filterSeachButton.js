@@ -4,11 +4,14 @@ function filterIngredients(valueTagText,recipes) {
                
     // efface tous les articles contenus dans le "MAIN"
    document.querySelector('#main').innerHTML = "";
-   
-   /* parcours tout le tableau "recipes" et recherche les recettes qui contiennent l'ingredient choisi
+
+   // récupère le résultat de la echerche principale
+   let resultat = search(recipes);
+
+   /* parcours tout le tableau "resultat" et recherche les recettes qui contiennent l'ingredient choisi
     puis créer un article pour chaque résultat */
 
-   recipes.forEach((recette) => {
+   resultat.forEach((recette) => {
        recette.ingredients.forEach((liste) => {
            let ingredient = liste.ingredient;
            let result = ingredient.toLocaleLowerCase().includes(valueTagText.toLocaleLowerCase());
@@ -17,6 +20,7 @@ function filterIngredients(valueTagText,recipes) {
            }
        })
    })
+ 
    
 }
 
@@ -25,11 +29,14 @@ function filterAppareils(valueTagText,recipes) {
 
        // efface tous les articles contenus dans le "MAIN"
        document.querySelector('#main').innerHTML = "";
+
+       // récupère le résultat de la echerche principale
+       let resultat = search(recipes);
                     
-       /* parcours tout le tableau "recipes" et recherche les recettes qui contiennent l'appareil choisi
+       /* parcours tout le tableau "resultat" et recherche les recettes qui contiennent l'appareil choisi
         puis créer un article pour chaque résultat */
 
-       recipes.forEach((recette) => {
+       resultat.forEach((recette) => {
            
                let appareil =  recette.appliance
                let result = appareil.includes(valueTagText);
@@ -45,11 +52,14 @@ function filterUstensiles(valueTagText,recipes) {
     
        // efface tous les articles contenus dans le "MAIN"
        document.querySelector('#main').innerHTML = "";
+
+        // récupère le résultat de la echerche principale
+        let resultat = search(recipes);
               
-       /* parcours tout le tableau "recipes" et recherche les recettes qui contiennent l'ustensile choisi
+       /* parcours tout le tableau "resultat" et recherche les recettes qui contiennent l'ustensile choisi
         puis créer un article pour chaque résultat */
 
-       recipes.forEach((recette) => {
+       resultat.forEach((recette) => {
            console.log(recette.ustensils);
                let ustensile =  recette.ustensils
                
