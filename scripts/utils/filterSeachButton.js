@@ -5,7 +5,7 @@ function filterIngredients(valueTagText,recipes) {
     // efface tous les articles contenus dans le "MAIN"
    document.querySelector('#main').innerHTML = "";
 
-   // récupère le résultat de la echerche principale
+   // récupère le résultat de la recherche principale
    let resultat = search(recipes);
 
    /* parcours tout le tableau "resultat" et recherche les recettes qui contiennent l'ingredient choisi
@@ -16,14 +16,20 @@ function filterIngredients(valueTagText,recipes) {
            let ingredient = liste.ingredient;
            let result = ingredient.toLocaleLowerCase().includes(valueTagText.toLocaleLowerCase());
            if (result === true) {
-               articleRecipes(recette);
-           }
+              articleRecipes(recette); 
+              
+            }
        })
    })
- 
    
 }
 
+function listeIngredient(ingredient) {
+    const ingredients = document.createElement('p');
+    selectContentIngredient.appendChild(ingredients);
+    ingredients.setAttribute("class","liste liste_ingredient");
+    ingredients.textContent = ingredient.ingredient; 
+}
 // crée un article pour chaque correspondanceentre le tag appareil et les recettes
 function filterAppareils(valueTagText,recipes) {
 
@@ -60,9 +66,7 @@ function filterUstensiles(valueTagText,recipes) {
         puis créer un article pour chaque résultat */
 
        resultat.forEach((recette) => {
-           console.log(recette.ustensils);
                let ustensile =  recette.ustensils
-               
                let result = ustensile.includes(valueTagText);
                if (result === true) {
                    articleRecipes(recette);

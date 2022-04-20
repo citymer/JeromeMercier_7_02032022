@@ -95,15 +95,12 @@ const tag = document.querySelector('.tags');
 // Crée un tag quand on clique sur un ingredient de la liste
 const allIngredients = document.getElementsByClassName('liste_ingredient');
 
-function createTagIngredient() {
-
-    
+function createTagIngredient() {    
     for (let i = 0; i < allIngredients.length; i++) {
     
         allIngredients[i].addEventListener('click' , function(e) {
               e.preventDefault();
             
-           
             const tagIngredients = document.createElement('div');
             tag.appendChild(tagIngredients);
             tagIngredients.setAttribute("class","tag tagingredient ");
@@ -112,7 +109,6 @@ function createTagIngredient() {
                    tagIngredients.appendChild(tagText);
                    tagText.setAttribute("class","tagtext mx-2");
                    tagText.textContent = allIngredients[i].innerHTML;
-       
        
                    const close = document.createElement('img');
                    tagIngredients.appendChild(close);
@@ -133,18 +129,16 @@ function createTagIngredient() {
             // récupère le texte du tag
             let valueTagText = tagText.innerHTML;
         
-       
             // appel la fonction qui trie les recettes par TAG
             filterIngredients(valueTagText,recipes);
-         
-            
                 
             // quand on ferme un tag 
             close.addEventListener('click', function() {
                 filterCloseTag();
+              
             });                   
                 
-       })
+        })
     } 
 } 
 
@@ -253,7 +247,9 @@ function createtagUstensiles() {
    } 
 }
 
+// a la fermeture d'un tag , actualise la page
 function filterCloseTag () {
+    document.querySelector('#main').innerHTML = "";
     if (mainBar.value.length > 2) {
         let resultat = search(recipes);
             resultat.forEach(articleRecipes);
@@ -262,6 +258,8 @@ function filterCloseTag () {
         resultat.forEach(articleRecipes);
     }
 }
+
+
 /*       ::::::::::::::   TRIE DES LISTES : Ingredients , Appareils , Ustensiles   ::::::::::::       */
 
           // INGREDIENTS //
