@@ -97,11 +97,8 @@ function updateIngredientList() {
         }
     })
     let ingredientSansDoublons = Array.from(new Set(liste));
-    ingredientSansDoublons.forEach(ingredients => {
-          const ingredient = document.createElement('p');
-          selectContentIngredient.appendChild(ingredient);
-          ingredient.setAttribute("class","liste liste_ingredient");
-          ingredient.textContent = ingredients;   
+    ingredientSansDoublons.forEach(ingredient => {
+        listeIngredient(ingredient);  
     })
     createTagIngredient();
 }
@@ -115,11 +112,8 @@ function updateAppareilList() {
         liste.push(recette.appliance);    
     })
     let appareilSansDoublons = Array.from(new Set(liste));
-    appareilSansDoublons.forEach(appareil => {
-        const appareils = document.createElement('p');
-        selectContentAppareil.appendChild(appareils);
-        appareils.setAttribute("class","liste liste_appareil");
-        appareils.textContent = appareil;
+    appareilSansDoublons.forEach(appareils => {
+        listeAppareil(appareils)
     })
     createTagAppareil();
 }
@@ -137,10 +131,7 @@ function updateUstensileList() {
     })
     let ustensileSansDoublons = Array.from(new Set(liste));
     ustensileSansDoublons.forEach(ustensile => {
-        const ustensiles = document.createElement('p');
-        selectContentUstensile.appendChild(ustensiles);
-        ustensiles.setAttribute("class","liste liste_ustensile");
-        ustensiles.textContent = ustensile;
+        listeUstensile(ustensile);
     })
     createtagUstensiles();
 }

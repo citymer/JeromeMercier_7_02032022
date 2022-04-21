@@ -137,11 +137,10 @@ function createTagIngredient() {
                 filterCloseTag();
               
             });                   
-                
+               
         })
     } 
 } 
-
 
 
       // TAG APPAREIL //

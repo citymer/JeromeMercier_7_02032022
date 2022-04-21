@@ -11,7 +11,8 @@ boutonIngredients.addEventListener('click', function(e) {
     
     inputIngredients.style.display = "block";
     boutonIngredients.style.display = "none";
-
+    
+    openTagIngredient();
 })
 
 //ferme l'input ingrédients
@@ -34,6 +35,7 @@ boutonAppareils.addEventListener('click', function(e) {
     
     inputAppareils.style.display = "block";
     boutonAppareils.style.display = "none";
+    openTagAppareil();
 })
 
 //ferme l'input ingrédients
@@ -55,6 +57,7 @@ boutonUstensiles.addEventListener('click', function(e) {
     
     inputUstensiles.style.display = "block";
     boutonUstensiles.style.display = "none";
+    openTagUstensiles();
 })
 
 //ferme l'input ingrédients
@@ -64,3 +67,27 @@ chevronUpUstensiles.addEventListener('click', function(e) {
     boutonUstensiles.style.display = "block";
 })
 
+function openTagIngredient() {
+    let ingredientElement = document.getElementsByClassName('liste_ingredient');
+    for (let i = 0; i < ingredientElement.length; i++) {
+        ingredientElement[i].addEventListener('click', function() {
+            createTagIngredient();
+        })
+    }
+}
+function openTagAppareil() {
+    let appareilElement = document.getElementsByClassName('liste_appareil');
+    for (let i = 0; i < appareilElement.length; i++) {
+        appareilElement[i].addEventListener('click', function() {
+            createTagAppareil();
+        })
+    }
+}
+function openTagUstensiles() {
+    let ustensileElement = document.getElementsByClassName('liste_ustensile');
+    for (let i = 0; i < ustensileElement.length; i++) {
+        ustensileElement[i].addEventListener('click', function() {
+            createtagUstensiles();
+        })
+    }
+}
