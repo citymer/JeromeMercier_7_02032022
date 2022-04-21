@@ -256,6 +256,9 @@ function filterCloseTag () {
     }else{
         let resultat = search(recipes);
         resultat.forEach(articleRecipes);
+        updateIngredientList();
+        updateAppareilList();
+        updateUstensileList();
     }
 }
 
