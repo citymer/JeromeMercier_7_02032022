@@ -1,7 +1,6 @@
 // crée un article  pour chaque correspondance entre le tag ingredient et les recettes
 function filterIngredients(valueTagText,recipes) {
-
-               
+           
     // efface tous les articles contenus dans le "MAIN"
    document.querySelector('#main').innerHTML = "";
 
@@ -73,6 +72,10 @@ function filterAppareils(valueTagText,recipes) {
 
        // récupère le résultat de la echerche principale
        let resultat = search(recipes);
+       // récupère les ingredients,appareils des recettes afficher
+       let listeIngredients = [];
+       let listeAppareils = [];
+       let listeUstensiles = [];
                     
        /* parcours tout le tableau "resultat" et recherche les recettes qui contiennent l'appareil choisi
         puis créer un article pour chaque résultat */
@@ -83,9 +86,47 @@ function filterAppareils(valueTagText,recipes) {
                let result = appareil.includes(valueTagText);
                if (result === true) {    
                    articleRecipes(recette);
-               }
-               
-           })
+                   let recettes = [];
+                   recettes.push(recette);
+                 
+                   recettes.forEach(liste => {
+                       for(let ingredient of liste.ingredients) {
+                          listeIngredients.push(ingredient.ingredient);
+                        }
+                    })
+                   recettes.forEach(liste => {
+                       listeAppareils.push(liste.appliance) 
+                    })
+                   recettes.forEach(liste => {
+                       for(let ustensile of liste.ustensils) {
+                           listeUstensiles.push(ustensile);
+                        }
+                    })                   
+                 
+                }
+                
+        })
+    // met a jour la liste des ingredients
+    let ingredientsSansDoublons = Array.from(new Set(listeIngredients));
+    document.querySelector('.content_list_ingredients').innerHTML = "";
+    ingredientsSansDoublons.forEach(ingredient => {
+        listeIngredient(ingredient);
+    })
+    createTagIngredient();
+    // met à jour la liste d'appareil
+    let appareilSansDoublons = Array.from(new Set(listeAppareils));
+    document.querySelector('.content_list_appareils').innerHTML = "";
+    appareilSansDoublons.forEach(appareils => {
+        listeAppareil(appareils)
+    })
+    createTagAppareil();
+    //met à jour la liste d'ustensiles
+    let ustensilesSansDoublons = Array.from(new Set(listeUstensiles));
+    document.querySelector('.content_list_ustensiles').innerHTML = "";
+    ustensilesSansDoublons.forEach(ustensile => {
+        listeUstensile(ustensile);
+    })
+    createtagUstensiles();
 }
 
 // crée un article pour chaque correspondanceentre le tag ustensiles et les recettes
@@ -96,6 +137,11 @@ function filterUstensiles(valueTagText,recipes) {
 
         // récupère le résultat de la echerche principale
         let resultat = search(recipes);
+
+        // récupère les ingredients,appareils des recettes afficher
+        let listeIngredients = [];
+        let listeAppareils = [];
+        let listeUstensiles = [];
               
        /* parcours tout le tableau "resultat" et recherche les recettes qui contiennent l'ustensile choisi
         puis créer un article pour chaque résultat */
@@ -105,9 +151,47 @@ function filterUstensiles(valueTagText,recipes) {
                let result = ustensile.includes(valueTagText);
                if (result === true) {
                    articleRecipes(recette);
+
+                   let recettes = [];
+                   recettes.push(recette);
+                 
+                   recettes.forEach(liste => {
+                       for(let ingredient of liste.ingredients) {
+                          listeIngredients.push(ingredient.ingredient);
+                         }
+                     })
+                   recettes.forEach(liste => {
+                       listeAppareils.push(liste.appliance) 
+                   })
+                   recettes.forEach(liste => {
+                       for(let ustensile of liste.ustensils) {
+                           listeUstensiles.push(ustensile);
+                       }
+                   }) 
                }
            
        })
+    // met a jour la liste des ingredients
+   let ingredientsSansDoublons = Array.from(new Set(listeIngredients));
+   document.querySelector('.content_list_ingredients').innerHTML = "";
+   ingredientsSansDoublons.forEach(ingredient => {
+       listeIngredient(ingredient);
+    })
+   createTagIngredient();
+   // met à jour la liste d'appareil
+   let appareilSansDoublons = Array.from(new Set(listeAppareils));
+   document.querySelector('.content_list_appareils').innerHTML = "";
+   appareilSansDoublons.forEach(appareils => {
+       listeAppareil(appareils)
+   })
+   createTagAppareil();
+   //met à jour la liste d'ustensiles
+   let ustensilesSansDoublons = Array.from(new Set(listeUstensiles));
+   document.querySelector('.content_list_ustensiles').innerHTML = "";
+   ustensilesSansDoublons.forEach(ustensile => {
+      listeUstensile(ustensile);
+   })
+   createtagUstensiles();   
 }
 
 
@@ -132,4 +216,5 @@ function listeUstensile(ustensile) {
     ustensiles.setAttribute("class","liste liste_ustensile");
     ustensiles.textContent = ustensile;
 }
+
 
