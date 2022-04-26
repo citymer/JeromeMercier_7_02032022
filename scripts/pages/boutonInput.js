@@ -128,7 +128,10 @@ function createTagIngredient() {
 
             // récupère le texte du tag
             let valueTagText = tagText.innerHTML;
-        
+
+            let tagg = document.getElementsByClassName('tag');
+            console.log(tagg);
+
             // appel la fonction qui trie les recettes par TAG
             filterIngredients(valueTagText,recipes);
                 
@@ -183,7 +186,9 @@ function createTagAppareil() {
              let valueTagText = tagText.innerHTML;
                 
             filterAppareils(valueTagText,recipes);
-                        
+
+            let tagg = document.getElementsByClassName('tag');
+            console.log(tagg);          
                     
              // quand on ferme un tag 
             close.addEventListener('click', function() {
@@ -236,7 +241,10 @@ function createtagUstensiles() {
             let valueTagText = tagText.innerHTML;
                 
             filterUstensiles(valueTagText,recipes);
-              
+
+            let tagg = document.getElementsByClassName('tag');
+            console.log(tagg);  
+            
             // quand on ferme un tag 
             close.addEventListener('click', function() {
                  filterCloseTag();

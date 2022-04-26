@@ -45,21 +45,21 @@ function filterIngredients(valueTagText,recipes) {
    ingredientsSansDoublons.forEach(ingredient => {
        listeIngredient(ingredient);
     })
-   createTagIngredient();
+   
    // met à jour la liste d'appareil
    let appareilSansDoublons = Array.from(new Set(listeAppareils));
    document.querySelector('.content_list_appareils').innerHTML = "";
    appareilSansDoublons.forEach(appareils => {
        listeAppareil(appareils)
    })
-   createTagAppareil();
+   
    //met à jour la liste d'ustensiles
    let ustensilesSansDoublons = Array.from(new Set(listeUstensiles));
    document.querySelector('.content_list_ustensiles').innerHTML = "";
    ustensilesSansDoublons.forEach(ustensile => {
       listeUstensile(ustensile);
    })
-   createtagUstensiles();
+ 
    
 }
 
@@ -112,21 +112,21 @@ function filterAppareils(valueTagText,recipes) {
     ingredientsSansDoublons.forEach(ingredient => {
         listeIngredient(ingredient);
     })
-    createTagIngredient();
+    
     // met à jour la liste d'appareil
     let appareilSansDoublons = Array.from(new Set(listeAppareils));
     document.querySelector('.content_list_appareils').innerHTML = "";
     appareilSansDoublons.forEach(appareils => {
         listeAppareil(appareils)
     })
-    createTagAppareil();
+    
     //met à jour la liste d'ustensiles
     let ustensilesSansDoublons = Array.from(new Set(listeUstensiles));
     document.querySelector('.content_list_ustensiles').innerHTML = "";
     ustensilesSansDoublons.forEach(ustensile => {
         listeUstensile(ustensile);
     })
-    createtagUstensiles();
+    
 }
 
 // crée un article pour chaque correspondanceentre le tag ustensiles et les recettes
@@ -177,21 +177,21 @@ function filterUstensiles(valueTagText,recipes) {
    ingredientsSansDoublons.forEach(ingredient => {
        listeIngredient(ingredient);
     })
-   createTagIngredient();
+   
    // met à jour la liste d'appareil
    let appareilSansDoublons = Array.from(new Set(listeAppareils));
    document.querySelector('.content_list_appareils').innerHTML = "";
    appareilSansDoublons.forEach(appareils => {
        listeAppareil(appareils)
    })
-   createTagAppareil();
+   
    //met à jour la liste d'ustensiles
    let ustensilesSansDoublons = Array.from(new Set(listeUstensiles));
    document.querySelector('.content_list_ustensiles').innerHTML = "";
    ustensilesSansDoublons.forEach(ustensile => {
       listeUstensile(ustensile);
    })
-   createtagUstensiles();   
+      
 }
 
 

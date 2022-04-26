@@ -1,10 +1,10 @@
 function init() {
     createIngredient();
-   // createTagIngredient();
+    createTagIngredient();
     createAppareil();
-    //createTagAppareil();
+    createTagAppareil();
     createUstensile();
-   // createtagUstensiles(); 
+    createtagUstensiles(); 
 };
 
 init();
