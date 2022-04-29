@@ -1,5 +1,5 @@
 // crée un article  pour chaque correspondance entre le tag ingredient et les recettes
-function filterIngredients(recipes) {
+function filterByTags(recipes) {
            
    // récupère le résultat de la recherche principale
    let resultat = search(recipes);

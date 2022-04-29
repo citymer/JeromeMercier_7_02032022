@@ -127,7 +127,7 @@ function createTagIngredient() {
             boutonIngredients.style.display = "block";
 
             // appel la fonction qui trie les recettes par TAG
-            filterIngredients(recipes);
+            filterByTags(recipes);
                 
             // quand on ferme un tag 
             close.addEventListener('click', function() {
@@ -178,7 +178,7 @@ function createTagAppareil() {
 
 
                 
-             filterIngredients(recipes);
+             filterByTags(recipes);
 
         
                     
@@ -230,7 +230,7 @@ function createtagUstensiles() {
             boutonUstensiles.style.display = "block"; 
              
                 
-            filterIngredients(recipes);
+            filterByTags(recipes);
 
             
             // quand on ferme un tag 
@@ -252,7 +252,7 @@ function filterCloseTag () {
             updateAppareilList();
             updateUstensileList();
     }else{
-        filterIngredients(recipes)
+        filterByTags(recipes)
     }
 }
 
