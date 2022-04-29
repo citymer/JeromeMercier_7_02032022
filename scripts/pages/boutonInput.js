@@ -126,14 +126,8 @@ function createTagIngredient() {
             inputIngredients.style.display = "none";
             boutonIngredients.style.display = "block";
 
-            // récupère le texte du tag
-            let valueTagText = tagText.innerHTML;
-
-            let tagg = document.getElementsByClassName('tag');
-            console.log(tagg);
-
             // appel la fonction qui trie les recettes par TAG
-            filterIngredients(valueTagText,recipes);
+            filterIngredients(recipes);
                 
             // quand on ferme un tag 
             close.addEventListener('click', function() {
@@ -182,13 +176,11 @@ function createTagAppareil() {
             inputAppareils.style.display = "none";
             boutonAppareils.style.display = "block";
 
-             // récupère le texte du tag
-             let valueTagText = tagText.innerHTML;
-                
-            filterAppareils(valueTagText,recipes);
 
-            let tagg = document.getElementsByClassName('tag');
-            console.log(tagg);          
+                
+             filterIngredients(recipes);
+
+        
                     
              // quand on ferme un tag 
             close.addEventListener('click', function() {
@@ -237,13 +229,9 @@ function createtagUstensiles() {
             inputUstensiles.style.display = "none";
             boutonUstensiles.style.display = "block"; 
              
-            // récupère le texte du tag
-            let valueTagText = tagText.innerHTML;
                 
-            filterUstensiles(valueTagText,recipes);
+            filterIngredients(recipes);
 
-            let tagg = document.getElementsByClassName('tag');
-            console.log(tagg);  
             
             // quand on ferme un tag 
             close.addEventListener('click', function() {
@@ -256,8 +244,8 @@ function createtagUstensiles() {
 
 // a la fermeture d'un tag , actualise la page
 function filterCloseTag () {
-    document.querySelector('#main').innerHTML = "";
     if (mainBar.value.length > 2) {
+        document.querySelector('#main').innerHTML = "";
         let resultat = search(recipes);
             resultat.forEach(articleRecipes);
     }else{
