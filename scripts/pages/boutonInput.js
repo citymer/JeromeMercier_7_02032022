@@ -248,12 +248,11 @@ function filterCloseTag () {
         document.querySelector('#main').innerHTML = "";
         let resultat = search(recipes);
             resultat.forEach(articleRecipes);
+            updateIngredientList();
+            updateAppareilList();
+            updateUstensileList();
     }else{
-        let resultat = search(recipes);
-        resultat.forEach(articleRecipes);
-        updateIngredientList();
-        updateAppareilList();
-        updateUstensileList();
+        filterIngredients(recipes)
     }
 }
 
