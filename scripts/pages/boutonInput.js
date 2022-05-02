@@ -10,13 +10,11 @@ recipes.forEach((recettes) => {
         ingredientArray.push(recette.ingredient);
     })
 })
-
 // recupere tous les appareils et les envoie dans "appareilArray"
 recipes.forEach((recettes) => {
     appareilArray.push(recettes.appliance);
  
 })
-
 // recupere tous les ustensiles et les envoie dans "ustensileArray"
 recipes.forEach((recettes) => {
     recettes.ustensils.forEach((recette) => {
@@ -24,59 +22,41 @@ recipes.forEach((recettes) => {
     })
  
 })
-
-
-
-// supprime les doublons dans "ingredientArray" et crée un nouveau tableau
+// supprime les doublons  et crée un nouveau tableau
 let ingredientsFiltre = Array.from(new Set(ingredientArray));
-
-// supprime les doublons dans "appareilArray" et crée un nouveau tableau
 let appareilFiltre = Array.from(new Set(appareilArray));
-
-// supprime les doublons dans "ustensileArray" et crée un nouveau tableau
 let ustensileFiltre = Array.from(new Set(ustensileArray));
-
 
 
 /* :::::::::::::::        CREATION DES LISTES          ::::::::::::: */
 
 const selectContentIngredient = document.querySelector('.content_list_ingredients');
- // crée une balise "p" pour chaque INGREDIENT  
- function createIngredient(){
-
-     
+// crée une balise "p" pour chaque INGREDIENT  
+function createIngredient(){  
           ingredientsFiltre.forEach((liste) => {
-              
               const ingredient = document.createElement('p');
               selectContentIngredient.appendChild(ingredient);
               ingredient.setAttribute("class","liste liste_ingredient");
-              ingredient.textContent = liste;
-              
-            
-             })
- }
+              ingredient.textContent = liste; 
+            })
+}
 
- const selectContentAppareil = document.querySelector('.content_list_appareils');
- // crée une balise "p" pour chaque APPAREIL
- function createAppareil() {
-     
+const selectContentAppareil = document.querySelector('.content_list_appareils');
+// crée une balise "p" pour chaque APPAREIL
+function createAppareil() {
            appareilFiltre.forEach((liste) => {
-     
                const appareils = document.createElement('p');
                selectContentAppareil.appendChild(appareils);
                appareils.setAttribute("class","liste liste_appareil");
                appareils.textContent = liste;
-           })
+            })
+}
 
- }
-
-   // crée une balise "p" pour chaque USTENSILE  
 
 const selectContentUstensile = document.querySelector('.content_list_ustensiles');
+// crée une balise "p" pour chaque USTENSILE  
 function createUstensile() {
-
     ustensileFiltre.forEach((liste) => {
-
         const ustensile = document.createElement('p');
         selectContentUstensile.appendChild(ustensile);
         ustensile.setAttribute("class","liste liste_ustensile");
@@ -84,10 +64,9 @@ function createUstensile() {
     })
 }     
 
-
 /*   :::::::::::::::           CREATION DES TAGS ET FILTRE         ::::::::::::::  */
 
-    // TAG INGREDIENT //
+// TAG INGREDIENT //
 
 // selectionne la div qui va contenir les tags
 const tag = document.querySelector('.tags');
@@ -99,8 +78,7 @@ function createTagIngredient() {
     for (let i = 0; i < allIngredients.length; i++) {
     
         allIngredients[i].addEventListener('click' , function(e) {
-              e.preventDefault();
-            
+            e.preventDefault();
             const tagIngredients = document.createElement('div');
             tag.appendChild(tagIngredients);
             tagIngredients.setAttribute("class","tag tagingredient ");
@@ -119,16 +97,13 @@ function createTagIngredient() {
                    close.addEventListener('click', function(e) {
                       e.preventDefault;
                       tagIngredients.remove();
-                   
                     });
                 
             // referme l'INPUT du menu déroulant
             inputIngredients.style.display = "none";
             boutonIngredients.style.display = "block";
-
             // appel la fonction qui trie les recettes par TAG
-            filterByTags(recipes);
-                
+            filterByTags(recipes);    
             // quand on ferme un tag 
             close.addEventListener('click', function() {
                 filterCloseTag();
@@ -144,12 +119,9 @@ function createTagIngredient() {
 
 // Crée un tag quand on clique sur un appareil de la liste
 function createTagAppareil() {
-
     const allAppareils = document.getElementsByClassName('liste_appareil');
-    
-    
+ 
    for (let i = 0; i < allAppareils.length; i++) {
-
        allAppareils[i].addEventListener('click' , function(e) {
               e.preventDefault();
        
@@ -172,67 +144,53 @@ function createTagAppareil() {
                     e.preventDefault;
                     tagAppareils.remove();
                 }) 
-
             inputAppareils.style.display = "none";
             boutonAppareils.style.display = "block";
-
-
-                
-             filterByTags(recipes);
-
-        
-                    
-             // quand on ferme un tag 
+    
+            filterByTags(recipes);
+       
+            // quand on ferme un tag 
             close.addEventListener('click', function() {
                 filterCloseTag();
-            });
-
-         
-       })
-   } 
+            }); 
+        })
+    } 
 }
 
       // TAG USTENSILE //
 
 // Crée un tag quand on clique sur un ustensile de la liste
 function createtagUstensiles() {
-
     const allUstensiles = document.getElementsByClassName('liste_ustensile');
     
-    
    for (let i = 0; i < allUstensiles.length; i++) {
-
        allUstensiles[i].addEventListener('click' , function(e) {
-              e.preventDefault();
+            e.preventDefault();
        
-              const tagUstensiles = document.createElement('p');
-              tag.appendChild(tagUstensiles);
-              tagUstensiles.setAttribute("class","tag tagustensile");
+            const tagUstensiles = document.createElement('p');
+            tag.appendChild(tagUstensiles);
+            tagUstensiles.setAttribute("class","tag tagustensile");
        
-                  const tagText = document.createElement('span');
-                  tagUstensiles.appendChild(tagText);
-                  tagText.setAttribute("class","tagtext mx-2");
-                  tagText.textContent = allUstensiles[i].innerHTML;
+                const tagText = document.createElement('span');
+                tagUstensiles.appendChild(tagText);
+                tagText.setAttribute("class","tagtext mx-2");
+                tagText.textContent = allUstensiles[i].innerHTML;
        
+                const close = document.createElement('img');
+                tagUstensiles.appendChild(close);
+                close.setAttribute("class","close");
+                close.setAttribute("src","img/close.png");
        
-                   const close = document.createElement('img');
-                   tagUstensiles.appendChild(close);
-                   close.setAttribute("class","close");
-                   close.setAttribute("src","img/close.png");
-       
-       
-                   close.addEventListener('click', function(e) {
-                       e.preventDefault;
-                       tagUstensiles.remove();
-                   })
+                close.addEventListener('click', function(e) {
+                    e.preventDefault;
+                    tagUstensiles.remove();
+                })
 
             inputUstensiles.style.display = "none";
             boutonUstensiles.style.display = "block"; 
-             
-                
+                 
             filterByTags(recipes);
 
-            
             // quand on ferme un tag 
             close.addEventListener('click', function() {
                  filterCloseTag();
@@ -259,7 +217,7 @@ function filterCloseTag () {
 
 /*       ::::::::::::::   TRIE DES LISTES : Ingredients , Appareils , Ustensiles   ::::::::::::       */
 
-          // INGREDIENTS //
+// INGREDIENTS //
 
 // sélectionne l'input du bouton ingredients
 const inputIngredient = document.querySelector('#inputIngredient');
@@ -317,7 +275,6 @@ inputAppareil.addEventListener('keyup',function() {
     const resultsearch = Array.from(new Set(liste)).filter(appareil => appareil.toLocaleLowerCase().includes(inputSearch.toLocaleLowerCase()));
     // on vide la liste d'appareil dans la page
     selectContentAppareil.innerHTML = ""; 
-    console.log(resultsearch);
     // on crée une balise pour chaque résultat
     resultsearch.forEach(resultList => {
             
