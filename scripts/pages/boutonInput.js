@@ -317,6 +317,7 @@ inputAppareil.addEventListener('keyup',function() {
     const resultsearch = Array.from(new Set(liste)).filter(appareil => appareil.toLocaleLowerCase().includes(inputSearch.toLocaleLowerCase()));
     // on vide la liste d'appareil dans la page
     selectContentAppareil.innerHTML = ""; 
+    console.log(resultsearch);
     // on crée une balise pour chaque résultat
     resultsearch.forEach(resultList => {
             
