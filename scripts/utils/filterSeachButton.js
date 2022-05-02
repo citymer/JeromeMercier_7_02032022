@@ -20,12 +20,24 @@ function filterByTags(recipes) {
                   let ingredient = liste.ingredient;
                   let resultIngredient = ingredient.toLocaleLowerCase().includes(valueTag.innerText.toLocaleLowerCase());
                   if(resultIngredient === true) {
-                       resultDisplay.push(recette);
+                      if(ingredientTag.length === 1) {
+
+                          resultDisplay.push(recette);
+                      }else{
+                     let aa = {};
+                     resultDisplay = resultDisplay.filter(function(elem,index,array){
+                         return aa[elem.id]?0:aa[elem.id]=1;
+                         console.log(resultDisplay);
+                     })
+                      }
                     }
                 })
             })
+            
+            resultat = resultDisplay; 
+            console.log(resultat);   
         })
-    resultat = resultDisplay;
+    
     }
 
    if(appareilTag.length > 0) {
@@ -38,8 +50,8 @@ function filterByTags(recipes) {
                   resultDisplay.push(recette);
                 }
             })
+            resultat = resultDisplay;
         })
-    resultat = resultDisplay;
     }
 
    if (ustensileTag.length > 0) {
@@ -52,10 +64,10 @@ function filterByTags(recipes) {
                   resultDisplay.push(recette);
                 }
             })
+            resultat = resultDisplay;
         })   
-    resultat = resultDisplay;
     }
-    console.log(resultat);
+  
     // efface tous les articles contenus dans le "MAIN"
     document.querySelector('#main').innerHTML = "";
     resultat.forEach(recette => {

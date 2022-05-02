@@ -265,14 +265,25 @@ function filterCloseTag () {
 const inputIngredient = document.querySelector('#inputIngredient');
 
 inputIngredient.addEventListener('keyup',function() {
-     
+    
+    let resultat = search(recipes);
+    let liste = [];
+    //récupere les ingredients affichés et l'envoi dans le tableau LISTE
+    resultat.forEach(recette => {
+        let ingredients = recette.ingredients;
+        for(let list of ingredients) {
+            liste.push(list.ingredient);
+        }
+    })
     // récupére la valeur de l'input
     const inputSearch = inputIngredient.value;
 
-    // filtre le tableau ingredient et récupere les ingredients correspondant à la saisie
-    const resultsearch = ingredientsFiltre.filter(ingredient => ingredient.toLocaleLowerCase().includes(inputSearch.toLocaleLowerCase()));
+    // filtre le tableau LISTE et récupere les ingredients correspondant à la saisie sans les doublons
+    const resultsearch = Array.from(new Set(liste)).filter(ingredient => 
+        ingredient.toLocaleLowerCase().includes(inputSearch.toLocaleLowerCase()));
+    
 
-    // on vide la liste d'ingrédient dans la page
+    // on vide la liste d'ingrédient 
     selectContentIngredient.innerHTML = "";
      
     // on crée une balise pour chaque résultat
@@ -281,14 +292,9 @@ inputIngredient.addEventListener('keyup',function() {
         const ingredient = document.createElement('p');
         selectContentIngredient.appendChild(ingredient);
         ingredient.setAttribute("class","liste liste_ingredient");
-        ingredient.innerHTML = resultList;
-
-        
-        
+        ingredient.innerHTML = resultList;   
     })
     createTagIngredient();
-  
-
    
 })
 
@@ -297,31 +303,28 @@ inputIngredient.addEventListener('keyup',function() {
 // sélectionne l'input du bouton appareils
 const inputAppareil = document.querySelector('#inputAppareil');
 
+
 inputAppareil.addEventListener('keyup',function() {
-    
+    let resultat = search(recipes);
+    let liste = [];
+    //récupere les appareils affichés et l'envoi dans le tableau LISTE
+    resultat.forEach(recette => {
+        liste.push(recette.appliance);    
+    })
     // récupére la valeur de l'input
     const inputSearch = inputAppareil.value;
-    
-    // filtre le tableau appareil et récupere les appareils correspondant à la saisie
-    const resultsearch = appareilFiltre.filter(appareil => appareil.toLocaleLowerCase().includes(inputSearch.toLocaleLowerCase()));
-    
-
+    // filtre le tableau LISTE et récupere les appareils correspondant à la saisie sans les doublons
+    const resultsearch = Array.from(new Set(liste)).filter(appareil => appareil.toLocaleLowerCase().includes(inputSearch.toLocaleLowerCase()));
     // on vide la liste d'appareil dans la page
-    selectContentAppareil.innerHTML = "";
-     
+    selectContentAppareil.innerHTML = ""; 
     // on crée une balise pour chaque résultat
     resultsearch.forEach(resultList => {
             
         const appareil = document.createElement('p');
         selectContentAppareil.appendChild(appareil);
         appareil.setAttribute("class","liste liste_appareil");
-        appareil.innerHTML = resultList;
-
-        
-        
-    })
- 
-   
+        appareil.innerHTML = resultList;    
+    })   
     createTagAppareil();
   
 })
@@ -332,16 +335,23 @@ inputAppareil.addEventListener('keyup',function() {
 const inputUstensile = document.querySelector('#inputUstensile');
 
 inputUstensile.addEventListener('keyup',function() {
-     
+    let resultat = search(recipes);
+    let liste = [];
+    resultat.forEach(recette => {
+        let ustensils = recette.ustensils;
+        ustensils.forEach(ustensiles => {
+            liste.push(ustensiles);    
+        })
+    }) 
     // récupére la valeur de l'input
     const inputSearch = inputUstensile.value;
 
     // filtre le tableau ingredient et récupere les ingredients correspondant à la saisie
-    const resultsearch = ustensileFiltre.filter(ustensile => ustensile.toLocaleLowerCase().includes(inputSearch.toLocaleLowerCase()));
+    const resultsearch = Array.from(new Set(liste)).filter(ustensile => ustensile.toLocaleLowerCase().includes(inputSearch.toLocaleLowerCase()));
 
     // on vide la liste d'ingrédient dans la page
     selectContentUstensile.innerHTML = "";
-     
+     console.log(resultsearch);
     // on crée une balise pour chaque résultat
     resultsearch.forEach(resultList => {
 
