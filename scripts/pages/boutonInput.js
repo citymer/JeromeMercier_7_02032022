@@ -201,17 +201,8 @@ function createtagUstensiles() {
 }
 
 // a la fermeture d'un tag , actualise la page
-function filterCloseTag () {
-    if (mainBar.value.length > 2) {
-        document.querySelector('#main').innerHTML = "";
-        let resultat = search(recipes);
-            resultat.forEach(articleRecipes);
-            updateIngredientList();
-            updateAppareilList();
-            updateUstensileList();
-    }else{
-        filterByTags(recipes)
-    }
+function filterCloseTag () {  
+    filterByTags(recipes);  
 }
 
 
@@ -244,6 +235,7 @@ inputIngredient.addEventListener('keyup',function() {
     // on vide la liste d'ingrédient 
     selectContentIngredient.innerHTML = "";
      
+    
     // on crée une balise pour chaque résultat
     resultsearch.forEach(resultList => {
 

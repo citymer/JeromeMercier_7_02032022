@@ -13,36 +13,25 @@ function filterByTags(recipes) {
    let ustensileTag = document.querySelectorAll('.tagustensile');
  
    if(ingredientTag.length > 0) {
-       let resultDisplay = [];
        ingredientTag.forEach(valueTag => {
+           let resultDisplay = [];
            resultat.forEach(recette => {
                recette.ingredients.forEach((liste) => {
                   let ingredient = liste.ingredient;
                   let resultIngredient = ingredient.toLocaleLowerCase().includes(valueTag.innerText.toLocaleLowerCase());
                   if(resultIngredient === true) {
-                      if(ingredientTag.length === 1) {
-
-                          resultDisplay.push(recette);
-                      }else{
-                     let aa = {};
-                     resultDisplay = resultDisplay.filter(function(elem,index,array){
-                         return aa[elem.id]?0:aa[elem.id]=1;
-                         console.log(resultDisplay);
-                     })
-                      }
+                      resultDisplay.push(recette); 
                     }
                 })
             })
-            
-            resultat = resultDisplay; 
-            console.log(resultat);   
+           resultat = resultDisplay;   
         })
     
     }
 
    if(appareilTag.length > 0) {
-       let resultDisplay = [];
        appareilTag.forEach(valueTag => {
+           let resultDisplay = [];
            resultat.forEach(recette => {
               let appareil =  recette.appliance
               let resultAppareil = appareil.includes(valueTag.innerText);
@@ -55,8 +44,8 @@ function filterByTags(recipes) {
     }
 
    if (ustensileTag.length > 0) {
-       let resultDisplay = [];
        ustensileTag.forEach(valueTag => {
+           let resultDisplay = [];
             resultat.forEach(recette => {   
               let ustensile =  recette.ustensils
               let resultUstensile = ustensile.includes(valueTag.innerText);
@@ -67,12 +56,13 @@ function filterByTags(recipes) {
             resultat = resultDisplay;
         })   
     }
-  
+    console.log(resultat);
     // efface tous les articles contenus dans le "MAIN"
     document.querySelector('#main').innerHTML = "";
     resultat.forEach(recette => {
         articleRecipes(recette);
         arrayRecette(recette,listeIngredients,listeAppareils,listeUstensiles); 
+        createTagIngredient();
     })
 
    // met a jour la liste des ingredients
@@ -94,8 +84,12 @@ function filterByTags(recipes) {
    document.querySelector('.content_list_ustensiles').innerHTML = "";
    ustensilesSansDoublons.forEach(ustensile => {
       listeUstensile(ustensile);
-   })   
+   }) 
+   if (resultat.length === 0) {
+    messageError();  
+}  
 }
+
 
 // met à jour les listes d'ingredient,d'appareil,d'ustensile
 function arrayRecette(recette,listeIngredients,listeAppareils,listeUstensiles) {
