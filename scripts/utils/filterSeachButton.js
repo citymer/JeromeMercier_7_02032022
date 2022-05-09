@@ -86,8 +86,8 @@ function filterByTags(recipes) {
       listeUstensile(ustensile);
    }) 
    if (resultat.length === 0) {
-    messageError();  
-}  
+     messageError();  
+    }  
 }
 
 
