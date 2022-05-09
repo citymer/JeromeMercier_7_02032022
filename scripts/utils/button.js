@@ -4,7 +4,6 @@ const boutonIngredients = document.querySelector('.button_ingredients');
 const inputIngredients = document.querySelector('.ingredients');
 const chevronUp = document.querySelector('.chevron_up');
 
-
 // fait apparaitre l'input-bouton ingrédients
 boutonIngredients.addEventListener('click', function(e) {
     e.preventDefault();
