@@ -17,7 +17,7 @@ function filterDescription(recette) {
 
 function filterIngredient(recette) {
     let result = false;
-    recette.ingredients?.forEach((liste) => {
+    recette.ingredients.forEach((liste) => {
         let ingredient = liste.ingredient;
         result = ingredient.toLocaleLowerCase().includes(mainBar.value.toLocaleLowerCase());
         if (result === true) {
