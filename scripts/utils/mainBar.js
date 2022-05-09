@@ -30,13 +30,12 @@ function filterIngredient(recette) {
 // recherche dans le titre,les ingredients,la description une correspondance avec la saisie dans la barre de recherche
 function search(recipes) {
     let resultat = [];
-    
     if (mainBar.value.length > 2){
-        recipes.forEach((recette) => {
+        for (let recette of recipes) {
             if (filterTitle(recette) ||filterIngredient(recette) || filterDescription(recette)) {
                 resultat.push(recette);
             }
-        })  
+        } 
     }
     if (mainBar.value.length < 3) {
         return recipes;
@@ -44,8 +43,6 @@ function search(recipes) {
     if (resultat.length === 0) {
         messageError();  
     }
-
-    
     return resultat;
 }
 
