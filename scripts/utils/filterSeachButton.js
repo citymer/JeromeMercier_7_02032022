@@ -56,7 +56,7 @@ function filterByTags(recipes) {
             resultat = resultDisplay;
         })   
     }
-    console.log(resultat);
+    
     // efface tous les articles contenus dans le "MAIN"
     document.querySelector('#main').innerHTML = "";
     resultat.forEach(recette => {
